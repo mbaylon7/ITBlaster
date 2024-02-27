@@ -1,0 +1,78 @@
+// erwin 
+	public function astrl_update_field($id, $field, $value)
+	{
+		$this->db->where('astrl_list_id', $id);
+		$this->db->set($field, $value);
+		$this->db->update('tbl_astrl_list');
+		return ($this->db->affected_rows() > 0);
+	}
+	public function show_where_astrl($table_name)
+	{
+		$this->db->select('*');
+		$this->db->from($table_name . ' as t1');
+		$this->db->join('tbl_astrl_sign as t2', 't1.astrl_record_table_id = t2.astrl_record_table_id', 'left');
+		$query = $this->db->get();
+		return $query->result();
+	}
+	public function astrl_show_fetch_record($record_id){
+		$this->db->select('*');
+		$this->db->from('tbl_astrl_record');
+		$this->db->join('tbl_astrl_list', 'tbl_astrl_record.astrl_list_id = tbl_astrl_list.astrl_list_id', 'inner');
+		$this->db->join('tbl_astrl_sign', 'tbl_astrl_record.astrl_record_table_id = tbl_astrl_sign.astrl_record_table_id', 'inner');
+		$this->db->where('tbl_astrl_record.astrl_record_table_id', $record_id);
+		$query = $this->db->get();
+		return $query->result();
+	}
+
+	public function insertData($data, $table_name)
+	{
+		$this->db->insert($table_name,$data);
+		return $this->db->insert_id();
+	}
+	public function getAllergens()
+	{
+		$this->db->select('*');
+		$this->db->from('astrl_allergen_countries');
+		$this->db->join('astrl_allergens', 'astrl_allergens.allergens_id = astrl_allergen_countries.allergen_id', 'left');
+		$this->db->join('astrl_countries', 'astrl_countries.cntry_id = astrl_allergen_countries.country_id', 'left');
+		$query = $this->db->get();
+		return $query->result_array();
+	}
+
+	public function getSelectedAllergenCountries($selectedValues)
+	{
+		if (is_string($selectedValues)) {
+			$selectedValues = explode(',', $selectedValues);
+		}
+		$this->db->distinct();
+		$this->db->select('*');
+		$this->db->from('astrl_allergen_countries');
+		$this->db->join('astrl_countries', 'astrl_countries.cntry_id = astrl_allergen_countries.country_id');
+		$this->db->join('astrl_allergens', 'astrl_allergens.allergens_id = astrl_allergen_countries.allergen_id');
+		$this->db->where_in('astrl_allergen_countries.country_id', $selectedValues);
+		$result = $this->db->get()->result_array();
+
+		return $result;
+	}
+	
+	function select_where_al($fields, $table_name, $where, $boolean = false, $single = false)
+	{
+		$query = $this->db->select($fields)
+			->from($table_name)
+			->where($where)
+			->get();
+
+		if ($query->num_rows() > 0) {
+			if ($boolean == true) {
+				return true;
+			} else {
+				if ($single == true) {
+					return $query->row_array();
+				} else {
+					return $query->result_array();
+				}
+			}
+		}
+
+		return false;
+	}

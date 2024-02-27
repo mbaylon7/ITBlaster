@@ -1,0 +1,142 @@
+CRITICAL - 2023-11-02 21:01:15 --> Trying to access array offset on value of type null
+in APPPATH/Controllers/ProfileController.php on line 40.
+ 1 APPPATH/Controllers/ProfileController.php(40): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'APPPATH/Controllers/ProfileController.php', 40)
+ 2 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\ProfileController->index()
+ 3 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProfileController))
+ 4 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(66): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-11-02 21:02:20 --> Undefined variable $project
+in APPPATH/Views/client/profile.php on line 125.
+ 1 APPPATH/Views/client/profile.php(125): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $project', 'APPPATH/Views/client/profile.php', 125)
+ 2 SYSTEMPATH/View/View.php(213): include('APPPATH/Views/client/profile.php')
+ 3 SYSTEMPATH/View/View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH/Common.php(1184): CodeIgniter\View\View->render('client/profile', [], true)
+ 5 APPPATH/Controllers/ProfileController.php(556): view('client/profile', [...])
+ 6 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\ProfileController->client_profile_page()
+ 7 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProfileController))
+ 8 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH/index.php(66): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-11-02 21:02:20 --> Allowed memory size of 33554432 bytes exhausted (tried to allocate 20259672 bytes)
+【Previous Exception】
+ErrorException
+Undefined variable $project
+#0 /home/itblaster/repositories/itblaster/codeigniter/app/Views/client/profile.php(125): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined varia...', '/home/itblaster...', 125)
+#1 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/View/View.php(213): include('/home/itblaster...')
+#2 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/View/View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/Common.php(1184): CodeIgniter\View\View->render('client/profile', Array, true)
+#4 /home/itblaster/repositories/itblaster/codeigniter/app/Controllers/ProfileController.php(556): view('client/profile', Array)
+#5 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/CodeIgniter.php(934): App\Controllers\ProfileController->client_profile_page()
+#6 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProfileController))
+#7 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /home/itblaster/public_html/index.php(66): CodeIgniter\CodeIgniter->run()
+#9 {main}
+in VENDORPATH/laminas/laminas-escaper/src/Escaper.php on line 183.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2023-11-02 21:02:24 --> Undefined variable $project
+in APPPATH/Views/client/profile.php on line 125.
+ 1 APPPATH/Views/client/profile.php(125): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $project', 'APPPATH/Views/client/profile.php', 125)
+ 2 SYSTEMPATH/View/View.php(213): include('APPPATH/Views/client/profile.php')
+ 3 SYSTEMPATH/View/View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH/Common.php(1184): CodeIgniter\View\View->render('client/profile', [], true)
+ 5 APPPATH/Controllers/ProfileController.php(556): view('client/profile', [...])
+ 6 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\ProfileController->client_profile_page()
+ 7 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProfileController))
+ 8 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH/index.php(66): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-11-02 21:02:24 --> Allowed memory size of 33554432 bytes exhausted (tried to allocate 20258192 bytes)
+【Previous Exception】
+ErrorException
+Undefined variable $project
+#0 /home/itblaster/repositories/itblaster/codeigniter/app/Views/client/profile.php(125): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined varia...', '/home/itblaster...', 125)
+#1 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/View/View.php(213): include('/home/itblaster...')
+#2 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/View/View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/Common.php(1184): CodeIgniter\View\View->render('client/profile', Array, true)
+#4 /home/itblaster/repositories/itblaster/codeigniter/app/Controllers/ProfileController.php(556): view('client/profile', Array)
+#5 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/CodeIgniter.php(934): App\Controllers\ProfileController->client_profile_page()
+#6 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProfileController))
+#7 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /home/itblaster/public_html/index.php(66): CodeIgniter\CodeIgniter->run()
+#9 {main}
+in VENDORPATH/laminas/laminas-escaper/src/Escaper.php on line 183.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2023-11-02 21:02:28 --> Undefined variable $project
+in APPPATH/Views/client/profile.php on line 125.
+ 1 APPPATH/Views/client/profile.php(125): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $project', 'APPPATH/Views/client/profile.php', 125)
+ 2 SYSTEMPATH/View/View.php(213): include('APPPATH/Views/client/profile.php')
+ 3 SYSTEMPATH/View/View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH/Common.php(1184): CodeIgniter\View\View->render('client/profile', [], true)
+ 5 APPPATH/Controllers/ProfileController.php(556): view('client/profile', [...])
+ 6 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\ProfileController->client_profile_page()
+ 7 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProfileController))
+ 8 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH/index.php(66): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-11-02 21:02:28 --> Allowed memory size of 33554432 bytes exhausted (tried to allocate 20258192 bytes)
+【Previous Exception】
+ErrorException
+Undefined variable $project
+#0 /home/itblaster/repositories/itblaster/codeigniter/app/Views/client/profile.php(125): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined varia...', '/home/itblaster...', 125)
+#1 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/View/View.php(213): include('/home/itblaster...')
+#2 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/View/View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/Common.php(1184): CodeIgniter\View\View->render('client/profile', Array, true)
+#4 /home/itblaster/repositories/itblaster/codeigniter/app/Controllers/ProfileController.php(556): view('client/profile', Array)
+#5 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/CodeIgniter.php(934): App\Controllers\ProfileController->client_profile_page()
+#6 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProfileController))
+#7 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /home/itblaster/public_html/index.php(66): CodeIgniter\CodeIgniter->run()
+#9 {main}
+in VENDORPATH/laminas/laminas-escaper/src/Escaper.php on line 183.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2023-11-02 21:02:29 --> Undefined variable $project
+in APPPATH/Views/client/profile.php on line 125.
+ 1 APPPATH/Views/client/profile.php(125): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $project', 'APPPATH/Views/client/profile.php', 125)
+ 2 SYSTEMPATH/View/View.php(213): include('APPPATH/Views/client/profile.php')
+ 3 SYSTEMPATH/View/View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH/Common.php(1184): CodeIgniter\View\View->render('client/profile', [], true)
+ 5 APPPATH/Controllers/ProfileController.php(556): view('client/profile', [...])
+ 6 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\ProfileController->client_profile_page()
+ 7 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProfileController))
+ 8 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH/index.php(66): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-11-02 21:02:29 --> Allowed memory size of 33554432 bytes exhausted (tried to allocate 20258232 bytes)
+【Previous Exception】
+ErrorException
+Undefined variable $project
+#0 /home/itblaster/repositories/itblaster/codeigniter/app/Views/client/profile.php(125): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined varia...', '/home/itblaster...', 125)
+#1 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/View/View.php(213): include('/home/itblaster...')
+#2 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/View/View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/Common.php(1184): CodeIgniter\View\View->render('client/profile', Array, true)
+#4 /home/itblaster/repositories/itblaster/codeigniter/app/Controllers/ProfileController.php(556): view('client/profile', Array)
+#5 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/CodeIgniter.php(934): App\Controllers\ProfileController->client_profile_page()
+#6 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProfileController))
+#7 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /home/itblaster/public_html/index.php(66): CodeIgniter\CodeIgniter->run()
+#9 {main}
+in VENDORPATH/laminas/laminas-escaper/src/Escaper.php on line 183.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2023-11-02 21:02:33 --> Undefined variable $project
+in APPPATH/Views/client/profile.php on line 125.
+ 1 APPPATH/Views/client/profile.php(125): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $project', 'APPPATH/Views/client/profile.php', 125)
+ 2 SYSTEMPATH/View/View.php(213): include('APPPATH/Views/client/profile.php')
+ 3 SYSTEMPATH/View/View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH/Common.php(1184): CodeIgniter\View\View->render('client/profile', [], true)
+ 5 APPPATH/Controllers/ProfileController.php(556): view('client/profile', [...])
+ 6 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\ProfileController->client_profile_page()
+ 7 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProfileController))
+ 8 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH/index.php(66): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-11-02 21:02:33 --> Allowed memory size of 33554432 bytes exhausted (tried to allocate 20258176 bytes)
+【Previous Exception】
+ErrorException
+Undefined variable $project
+#0 /home/itblaster/repositories/itblaster/codeigniter/app/Views/client/profile.php(125): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined varia...', '/home/itblaster...', 125)
+#1 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/View/View.php(213): include('/home/itblaster...')
+#2 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/View/View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/Common.php(1184): CodeIgniter\View\View->render('client/profile', Array, true)
+#4 /home/itblaster/repositories/itblaster/codeigniter/app/Controllers/ProfileController.php(556): view('client/profile', Array)
+#5 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/CodeIgniter.php(934): App\Controllers\ProfileController->client_profile_page()
+#6 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProfileController))
+#7 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /home/itblaster/public_html/index.php(66): CodeIgniter\CodeIgniter->run()
+#9 {main}
+in VENDORPATH/laminas/laminas-escaper/src/Escaper.php on line 183.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()

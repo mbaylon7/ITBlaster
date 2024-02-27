@@ -1,0 +1,217 @@
+ERROR - 2023-07-10 14:17:56 --> mysqli_sql_exception: Unknown column 'ticketid' in 'field list' in /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:295
+Stack trace:
+#0 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(295): mysqli->query('INSERT INTO `tb...', 0)
+#1 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/Database/BaseConnection.php(691): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `tb...')
+#2 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/Database/BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `tb...')
+#3 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(2309): CodeIgniter\Database\BaseConnection->query('INSERT INTO `tb...', Array, false)
+#4 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/Model.php(330): CodeIgniter\Database\BaseBuilder->insert()
+#5 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/BaseModel.php(782): CodeIgniter\Model->doInsert(Array)
+#6 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/Model.php(730): CodeIgniter\BaseModel->insert(Array, false)
+#7 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/BaseModel.php(692): CodeIgniter\Model->insert(Array, false)
+#8 /home/itblaster/repositories/itblaster/codeigniter/app/Controllers/TicketController.php(123): CodeIgniter\BaseModel->save(Array)
+#9 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/CodeIgniter.php(934): App\Controllers\TicketController->applyEntry()
+#10 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TicketController))
+#11 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 /home/itblaster/public_html/index.php(66): CodeIgniter\CodeIgniter->run()
+#13 {main}
+CRITICAL - 2023-07-10 14:17:56 --> Unknown column 'ticketid' in 'field list'
+in SYSTEMPATH/Database/BaseConnection.php on line 645.
+ 1 SYSTEMPATH/Database/BaseBuilder.php(2309): CodeIgniter\Database\BaseConnection->query('INSERT INTO `tbl_applicant` (`projectid`, `clientid`, `ticketid`, `itid`) VALUES (:projectid:, :clientid:, :ticketid:, :itid:)', [...], false)
+ 2 SYSTEMPATH/Model.php(330): CodeIgniter\Database\BaseBuilder->insert()
+ 3 SYSTEMPATH/BaseModel.php(782): CodeIgniter\Model->doInsert([...])
+ 4 SYSTEMPATH/Model.php(730): CodeIgniter\BaseModel->insert([...], false)
+ 5 SYSTEMPATH/BaseModel.php(692): CodeIgniter\Model->insert([...], false)
+ 6 APPPATH/Controllers/TicketController.php(123): CodeIgniter\BaseModel->save([...])
+ 7 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\TicketController->applyEntry()
+ 8 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TicketController))
+ 9 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH/index.php(66): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-07-10 14:17:57 --> mysqli_sql_exception: Unknown column 'ticketid' in 'field list' in /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:295
+Stack trace:
+#0 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(295): mysqli->query('INSERT INTO `tb...', 0)
+#1 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/Database/BaseConnection.php(691): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `tb...')
+#2 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/Database/BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `tb...')
+#3 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(2309): CodeIgniter\Database\BaseConnection->query('INSERT INTO `tb...', Array, false)
+#4 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/Model.php(330): CodeIgniter\Database\BaseBuilder->insert()
+#5 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/BaseModel.php(782): CodeIgniter\Model->doInsert(Array)
+#6 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/Model.php(730): CodeIgniter\BaseModel->insert(Array, false)
+#7 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/BaseModel.php(692): CodeIgniter\Model->insert(Array, false)
+#8 /home/itblaster/repositories/itblaster/codeigniter/app/Controllers/TicketController.php(123): CodeIgniter\BaseModel->save(Array)
+#9 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/CodeIgniter.php(934): App\Controllers\TicketController->applyEntry()
+#10 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TicketController))
+#11 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 /home/itblaster/public_html/index.php(66): CodeIgniter\CodeIgniter->run()
+#13 {main}
+CRITICAL - 2023-07-10 14:17:57 --> Unknown column 'ticketid' in 'field list'
+in SYSTEMPATH/Database/BaseConnection.php on line 645.
+ 1 SYSTEMPATH/Database/BaseBuilder.php(2309): CodeIgniter\Database\BaseConnection->query('INSERT INTO `tbl_applicant` (`projectid`, `clientid`, `ticketid`, `itid`) VALUES (:projectid:, :clientid:, :ticketid:, :itid:)', [...], false)
+ 2 SYSTEMPATH/Model.php(330): CodeIgniter\Database\BaseBuilder->insert()
+ 3 SYSTEMPATH/BaseModel.php(782): CodeIgniter\Model->doInsert([...])
+ 4 SYSTEMPATH/Model.php(730): CodeIgniter\BaseModel->insert([...], false)
+ 5 SYSTEMPATH/BaseModel.php(692): CodeIgniter\Model->insert([...], false)
+ 6 APPPATH/Controllers/TicketController.php(123): CodeIgniter\BaseModel->save([...])
+ 7 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\TicketController->applyEntry()
+ 8 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TicketController))
+ 9 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH/index.php(66): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-07-10 14:19:06 --> mysqli_sql_exception: Unknown column 'ticketid' in 'field list' in /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:295
+Stack trace:
+#0 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(295): mysqli->query('INSERT INTO `tb...', 0)
+#1 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/Database/BaseConnection.php(691): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `tb...')
+#2 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/Database/BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `tb...')
+#3 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(2309): CodeIgniter\Database\BaseConnection->query('INSERT INTO `tb...', Array, false)
+#4 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/Model.php(330): CodeIgniter\Database\BaseBuilder->insert()
+#5 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/BaseModel.php(782): CodeIgniter\Model->doInsert(Array)
+#6 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/Model.php(730): CodeIgniter\BaseModel->insert(Array, false)
+#7 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/BaseModel.php(692): CodeIgniter\Model->insert(Array, false)
+#8 /home/itblaster/repositories/itblaster/codeigniter/app/Controllers/TicketController.php(123): CodeIgniter\BaseModel->save(Array)
+#9 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/CodeIgniter.php(934): App\Controllers\TicketController->applyEntry()
+#10 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TicketController))
+#11 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 /home/itblaster/public_html/index.php(66): CodeIgniter\CodeIgniter->run()
+#13 {main}
+CRITICAL - 2023-07-10 14:19:06 --> Unknown column 'ticketid' in 'field list'
+in SYSTEMPATH/Database/BaseConnection.php on line 645.
+ 1 SYSTEMPATH/Database/BaseBuilder.php(2309): CodeIgniter\Database\BaseConnection->query('INSERT INTO `tbl_applicant` (`projectid`, `clientid`, `ticketid`, `itid`) VALUES (:projectid:, :clientid:, :ticketid:, :itid:)', [...], false)
+ 2 SYSTEMPATH/Model.php(330): CodeIgniter\Database\BaseBuilder->insert()
+ 3 SYSTEMPATH/BaseModel.php(782): CodeIgniter\Model->doInsert([...])
+ 4 SYSTEMPATH/Model.php(730): CodeIgniter\BaseModel->insert([...], false)
+ 5 SYSTEMPATH/BaseModel.php(692): CodeIgniter\Model->insert([...], false)
+ 6 APPPATH/Controllers/TicketController.php(123): CodeIgniter\BaseModel->save([...])
+ 7 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\TicketController->applyEntry()
+ 8 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TicketController))
+ 9 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH/index.php(66): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-10 14:48:04 --> Trying to access array offset on value of type null
+in APPPATH/Controllers/ProjectController.php on line 200.
+ 1 APPPATH/Controllers/ProjectController.php(200): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'APPPATH/Controllers/ProjectController.php', 200)
+ 2 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\ProjectController->getAllData()
+ 3 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProjectController))
+ 4 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(66): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-10 14:48:16 --> Trying to access array offset on value of type null
+in APPPATH/Controllers/ProjectController.php on line 200.
+ 1 APPPATH/Controllers/ProjectController.php(200): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'APPPATH/Controllers/ProjectController.php', 200)
+ 2 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\ProjectController->getAllData()
+ 3 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProjectController))
+ 4 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(66): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-10 19:47:14 --> Trying to access array offset on value of type null
+in APPPATH/Controllers/ProjectController.php on line 200.
+ 1 APPPATH/Controllers/ProjectController.php(200): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'APPPATH/Controllers/ProjectController.php', 200)
+ 2 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\ProjectController->getAllData()
+ 3 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProjectController))
+ 4 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(66): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-10 19:48:20 --> Trying to access array offset on value of type null
+in APPPATH/Controllers/ProjectController.php on line 200.
+ 1 APPPATH/Controllers/ProjectController.php(200): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'APPPATH/Controllers/ProjectController.php', 200)
+ 2 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\ProjectController->getAllData()
+ 3 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProjectController))
+ 4 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(66): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-10 19:49:40 --> Trying to access array offset on value of type null
+in APPPATH/Controllers/ProjectController.php on line 200.
+ 1 APPPATH/Controllers/ProjectController.php(200): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'APPPATH/Controllers/ProjectController.php', 200)
+ 2 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\ProjectController->getAllData()
+ 3 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProjectController))
+ 4 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(66): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-10 19:50:05 --> Trying to access array offset on value of type null
+in APPPATH/Controllers/ProjectController.php on line 200.
+ 1 APPPATH/Controllers/ProjectController.php(200): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'APPPATH/Controllers/ProjectController.php', 200)
+ 2 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\ProjectController->getAllData()
+ 3 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProjectController))
+ 4 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(66): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-10 19:51:23 --> Trying to access array offset on value of type null
+in APPPATH/Controllers/ProjectController.php on line 200.
+ 1 APPPATH/Controllers/ProjectController.php(200): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'APPPATH/Controllers/ProjectController.php', 200)
+ 2 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\ProjectController->getAllData()
+ 3 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProjectController))
+ 4 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(66): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-10 19:51:31 --> Trying to access array offset on value of type null
+in APPPATH/Controllers/ProjectController.php on line 200.
+ 1 APPPATH/Controllers/ProjectController.php(200): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'APPPATH/Controllers/ProjectController.php', 200)
+ 2 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\ProjectController->getAllData()
+ 3 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProjectController))
+ 4 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(66): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-10 19:56:28 --> Trying to access array offset on value of type null
+in APPPATH/Controllers/ProjectController.php on line 201.
+ 1 APPPATH/Controllers/ProjectController.php(201): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'APPPATH/Controllers/ProjectController.php', 201)
+ 2 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\ProjectController->getAllData()
+ 3 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProjectController))
+ 4 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(66): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-10 19:56:59 --> Trying to access array offset on value of type null
+in APPPATH/Controllers/ProjectController.php on line 201.
+ 1 APPPATH/Controllers/ProjectController.php(201): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'APPPATH/Controllers/ProjectController.php', 201)
+ 2 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\ProjectController->getAllData()
+ 3 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProjectController))
+ 4 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(66): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-10 19:57:20 --> Trying to access array offset on value of type null
+in APPPATH/Controllers/ProjectController.php on line 201.
+ 1 APPPATH/Controllers/ProjectController.php(201): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'APPPATH/Controllers/ProjectController.php', 201)
+ 2 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\ProjectController->getAllData()
+ 3 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProjectController))
+ 4 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(66): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-10 19:57:46 --> Trying to access array offset on value of type null
+in APPPATH/Controllers/ProjectController.php on line 201.
+ 1 APPPATH/Controllers/ProjectController.php(201): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'APPPATH/Controllers/ProjectController.php', 201)
+ 2 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\ProjectController->getAllData()
+ 3 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProjectController))
+ 4 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(66): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-10 19:58:07 --> Trying to access array offset on value of type null
+in APPPATH/Controllers/ProjectController.php on line 201.
+ 1 APPPATH/Controllers/ProjectController.php(201): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'APPPATH/Controllers/ProjectController.php', 201)
+ 2 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\ProjectController->getAllData()
+ 3 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProjectController))
+ 4 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(66): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-10 19:58:26 --> Trying to access array offset on value of type null
+in APPPATH/Controllers/ProjectController.php on line 201.
+ 1 APPPATH/Controllers/ProjectController.php(201): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'APPPATH/Controllers/ProjectController.php', 201)
+ 2 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\ProjectController->getAllData()
+ 3 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProjectController))
+ 4 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(66): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-10 19:59:16 --> Trying to access array offset on value of type null
+in APPPATH/Controllers/ProjectController.php on line 201.
+ 1 APPPATH/Controllers/ProjectController.php(201): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'APPPATH/Controllers/ProjectController.php', 201)
+ 2 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\ProjectController->getAllData()
+ 3 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProjectController))
+ 4 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(66): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-10 20:03:28 --> Trying to access array offset on value of type null
+in APPPATH/Controllers/ProjectController.php on line 201.
+ 1 APPPATH/Controllers/ProjectController.php(201): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'APPPATH/Controllers/ProjectController.php', 201)
+ 2 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\ProjectController->getAllData()
+ 3 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProjectController))
+ 4 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(66): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-10 20:03:55 --> Trying to access array offset on value of type null
+in APPPATH/Controllers/ProjectController.php on line 201.
+ 1 APPPATH/Controllers/ProjectController.php(201): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'APPPATH/Controllers/ProjectController.php', 201)
+ 2 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\ProjectController->getAllData()
+ 3 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProjectController))
+ 4 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(66): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-10 20:04:06 --> Trying to access array offset on value of type null
+in APPPATH/Controllers/ProjectController.php on line 201.
+ 1 APPPATH/Controllers/ProjectController.php(201): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'APPPATH/Controllers/ProjectController.php', 201)
+ 2 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\ProjectController->getAllData()
+ 3 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProjectController))
+ 4 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(66): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-10 20:07:38 --> Trying to access array offset on value of type null
+in APPPATH/Controllers/ProjectController.php on line 201.
+ 1 APPPATH/Controllers/ProjectController.php(201): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'APPPATH/Controllers/ProjectController.php', 201)
+ 2 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\ProjectController->getAllData()
+ 3 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProjectController))
+ 4 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(66): CodeIgniter\CodeIgniter->run()

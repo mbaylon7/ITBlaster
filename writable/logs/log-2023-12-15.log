@@ -1,0 +1,242 @@
+ERROR - 2023-12-15 01:55:56 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '`IN` = ('Archived','Completed','On Hold')
+AND `is_approved` = 'Yes'' at line 4 in D:\xampp\htdocs\itblaster\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 D:\xampp\htdocs\itblaster\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(295): mysqli->query('SELECT *\nFROM `...', 0)
+#1 D:\xampp\htdocs\itblaster\vendor\codeigniter4\framework\system\Database\BaseConnection.php(691): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 D:\xampp\htdocs\itblaster\vendor\codeigniter4\framework\system\Database\BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 D:\xampp\htdocs\itblaster\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 D:\xampp\htdocs\itblaster\vendor\codeigniter4\framework\system\Model.php(241): CodeIgniter\Database\BaseBuilder->get()
+#5 D:\xampp\htdocs\itblaster\vendor\codeigniter4\framework\system\BaseModel.php(618): CodeIgniter\Model->doFindAll(0, 0)
+#6 D:\xampp\htdocs\itblaster\app\Controllers\TicketController.php(696): CodeIgniter\BaseModel->findAll()
+#7 D:\xampp\htdocs\itblaster\vendor\codeigniter4\framework\system\CodeIgniter.php(934): App\Controllers\TicketController->filterOpenTicketsByDev()
+#8 D:\xampp\htdocs\itblaster\vendor\codeigniter4\framework\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TicketController))
+#9 D:\xampp\htdocs\itblaster\vendor\codeigniter4\framework\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 D:\xampp\htdocs\itblaster\public\index.php(66): CodeIgniter\CodeIgniter->run()
+#11 D:\xampp\htdocs\itblaster\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(47): require_once('D:\\xampp\\htdocs...')
+#12 {main}
+CRITICAL - 2023-12-15 01:55:56 --> You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '`IN` = ('Archived','Completed','On Hold')
+AND `is_approved` = 'Yes'' at line 4
+in SYSTEMPATH\Database\BaseConnection.php on line 645.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `tbl_ticket`
+WHERE `ticket_status_flag` = :ticket_status_flag:
+AND `ticket_label NOT` `IN` = :ticket_label NOT IN:
+AND `is_approved` = :is_approved:', [...], false)
+ 2 SYSTEMPATH\Model.php(241): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(618): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Controllers\TicketController.php(696): CodeIgniter\BaseModel->findAll()
+ 5 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\TicketController->filterOpenTicketsByDev()
+ 6 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TicketController))
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(66): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+CRITICAL - 2023-12-15 02:09:16 --> Undefined variable $own
+in APPPATH\Controllers\TicketController.php on line 706.
+ 1 APPPATH\Controllers\TicketController.php(706): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $own', 'APPPATH\\Controllers\\TicketController.php', 706)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\TicketController->filterOpenTicketsByDev()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TicketController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(66): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+CRITICAL - 2023-12-15 02:13:15 --> Trying to access array offset on value of type null
+in APPPATH\Controllers\TicketController.php on line 715.
+ 1 APPPATH\Controllers\TicketController.php(715): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'APPPATH\\Controllers\\TicketController.php', 715)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\TicketController->filterOpenTicketsByDev()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TicketController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(66): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+ERROR - 2023-12-15 02:26:27 --> mysqli_sql_exception: Unknown column 'assign_to' in 'where clause' in D:\xampp\htdocs\itblaster\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 D:\xampp\htdocs\itblaster\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(295): mysqli->query('SELECT *\nFROM `...', 0)
+#1 D:\xampp\htdocs\itblaster\vendor\codeigniter4\framework\system\Database\BaseConnection.php(691): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 D:\xampp\htdocs\itblaster\vendor\codeigniter4\framework\system\Database\BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 D:\xampp\htdocs\itblaster\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 D:\xampp\htdocs\itblaster\vendor\codeigniter4\framework\system\Model.php(241): CodeIgniter\Database\BaseBuilder->get()
+#5 D:\xampp\htdocs\itblaster\vendor\codeigniter4\framework\system\BaseModel.php(618): CodeIgniter\Model->doFindAll(0, 0)
+#6 D:\xampp\htdocs\itblaster\app\Controllers\TicketController.php(697): CodeIgniter\BaseModel->findAll()
+#7 D:\xampp\htdocs\itblaster\vendor\codeigniter4\framework\system\CodeIgniter.php(934): App\Controllers\TicketController->filterOpenTicketsByDev()
+#8 D:\xampp\htdocs\itblaster\vendor\codeigniter4\framework\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TicketController))
+#9 D:\xampp\htdocs\itblaster\vendor\codeigniter4\framework\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 D:\xampp\htdocs\itblaster\public\index.php(66): CodeIgniter\CodeIgniter->run()
+#11 D:\xampp\htdocs\itblaster\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(47): require_once('D:\\xampp\\htdocs...')
+#12 {main}
+CRITICAL - 2023-12-15 02:26:27 --> Unknown column 'assign_to' in 'where clause'
+in SYSTEMPATH\Database\BaseConnection.php on line 645.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `tbl_project`
+WHERE `project_status_flag` =0 AND `project_label` NOT IN (\'Archived\', \'Completed\', \'On Hold\')
+AND `assign_to` = :assign_to:', [...], false)
+ 2 SYSTEMPATH\Model.php(241): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(618): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Controllers\TicketController.php(697): CodeIgniter\BaseModel->findAll()
+ 5 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\TicketController->filterOpenTicketsByDev()
+ 6 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TicketController))
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(66): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+ERROR - 2023-12-15 02:26:31 --> mysqli_sql_exception: Unknown column 'assign_to' in 'where clause' in D:\xampp\htdocs\itblaster\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 D:\xampp\htdocs\itblaster\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(295): mysqli->query('SELECT *\nFROM `...', 0)
+#1 D:\xampp\htdocs\itblaster\vendor\codeigniter4\framework\system\Database\BaseConnection.php(691): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 D:\xampp\htdocs\itblaster\vendor\codeigniter4\framework\system\Database\BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 D:\xampp\htdocs\itblaster\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 D:\xampp\htdocs\itblaster\vendor\codeigniter4\framework\system\Model.php(241): CodeIgniter\Database\BaseBuilder->get()
+#5 D:\xampp\htdocs\itblaster\vendor\codeigniter4\framework\system\BaseModel.php(618): CodeIgniter\Model->doFindAll(0, 0)
+#6 D:\xampp\htdocs\itblaster\app\Controllers\TicketController.php(697): CodeIgniter\BaseModel->findAll()
+#7 D:\xampp\htdocs\itblaster\vendor\codeigniter4\framework\system\CodeIgniter.php(934): App\Controllers\TicketController->filterOpenTicketsByDev()
+#8 D:\xampp\htdocs\itblaster\vendor\codeigniter4\framework\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TicketController))
+#9 D:\xampp\htdocs\itblaster\vendor\codeigniter4\framework\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 D:\xampp\htdocs\itblaster\public\index.php(66): CodeIgniter\CodeIgniter->run()
+#11 D:\xampp\htdocs\itblaster\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(47): require_once('D:\\xampp\\htdocs...')
+#12 {main}
+CRITICAL - 2023-12-15 02:26:31 --> Unknown column 'assign_to' in 'where clause'
+in SYSTEMPATH\Database\BaseConnection.php on line 645.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `tbl_project`
+WHERE `project_status_flag` =0 AND `project_label` NOT IN (\'Archived\', \'Completed\', \'On Hold\')
+AND `assign_to` = :assign_to:', [...], false)
+ 2 SYSTEMPATH\Model.php(241): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(618): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Controllers\TicketController.php(697): CodeIgniter\BaseModel->findAll()
+ 5 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\TicketController->filterOpenTicketsByDev()
+ 6 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TicketController))
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(66): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+CRITICAL - 2023-12-15 02:36:05 --> Undefined array key "ticket_title"
+in APPPATH\Controllers\TicketController.php on line 717.
+ 1 APPPATH\Controllers\TicketController.php(717): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "ticket_title"', 'APPPATH\\Controllers\\TicketController.php', 717)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\TicketController->filterOpenTicketsByDev()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TicketController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(66): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+CRITICAL - 2023-12-15 02:37:14 --> Undefined array key "ticket_title"
+in APPPATH\Controllers\TicketController.php on line 717.
+ 1 APPPATH\Controllers\TicketController.php(717): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "ticket_title"', 'APPPATH\\Controllers\\TicketController.php', 717)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\TicketController->filterOpenTicketsByDev()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TicketController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(66): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+CRITICAL - 2023-12-15 02:37:56 --> Undefined array key "ticket_title"
+in APPPATH\Controllers\TicketController.php on line 717.
+ 1 APPPATH\Controllers\TicketController.php(717): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "ticket_title"', 'APPPATH\\Controllers\\TicketController.php', 717)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\TicketController->filterOpenTicketsByDev()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TicketController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(66): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+CRITICAL - 2023-12-15 02:38:51 --> Undefined array key "ticket_title"
+in APPPATH\Controllers\TicketController.php on line 717.
+ 1 APPPATH\Controllers\TicketController.php(717): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "ticket_title"', 'APPPATH\\Controllers\\TicketController.php', 717)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\TicketController->filterOpenTicketsByDev()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TicketController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(66): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+CRITICAL - 2023-12-15 02:39:10 --> Undefined array key "ticket_title"
+in APPPATH\Controllers\TicketController.php on line 717.
+ 1 APPPATH\Controllers\TicketController.php(717): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "ticket_title"', 'APPPATH\\Controllers\\TicketController.php', 717)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\TicketController->filterOpenTicketsByDev()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TicketController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(66): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+CRITICAL - 2023-12-15 02:39:27 --> Undefined array key "ticket_title"
+in APPPATH\Controllers\TicketController.php on line 716.
+ 1 APPPATH\Controllers\TicketController.php(716): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "ticket_title"', 'APPPATH\\Controllers\\TicketController.php', 716)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\TicketController->filterOpenTicketsByDev()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TicketController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(66): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+CRITICAL - 2023-12-15 03:59:41 --> Trying to access array offset on value of type null
+in APPPATH\Controllers\TicketController.php on line 717.
+ 1 APPPATH\Controllers\TicketController.php(717): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'APPPATH\\Controllers\\TicketController.php', 717)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\TicketController->filterOpenTicketsByDev()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TicketController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(66): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+CRITICAL - 2023-12-15 03:59:44 --> Trying to access array offset on value of type null
+in APPPATH\Controllers\TicketController.php on line 717.
+ 1 APPPATH\Controllers\TicketController.php(717): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'APPPATH\\Controllers\\TicketController.php', 717)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\TicketController->filterOpenTicketsByDev()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TicketController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(66): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+CRITICAL - 2023-12-15 03:59:47 --> Trying to access array offset on value of type null
+in APPPATH\Controllers\TicketController.php on line 717.
+ 1 APPPATH\Controllers\TicketController.php(717): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'APPPATH\\Controllers\\TicketController.php', 717)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\TicketController->filterOpenTicketsByDev()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TicketController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(66): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+CRITICAL - 2023-12-15 04:00:13 --> Trying to access array offset on value of type null
+in APPPATH\Controllers\TicketController.php on line 717.
+ 1 APPPATH\Controllers\TicketController.php(717): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'APPPATH\\Controllers\\TicketController.php', 717)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\TicketController->filterOpenTicketsByDev()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TicketController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(66): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+CRITICAL - 2023-12-15 04:00:15 --> Trying to access array offset on value of type null
+in APPPATH\Controllers\TicketController.php on line 717.
+ 1 APPPATH\Controllers\TicketController.php(717): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'APPPATH\\Controllers\\TicketController.php', 717)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\TicketController->filterOpenTicketsByDev()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TicketController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(66): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+CRITICAL - 2023-12-15 04:00:18 --> Trying to access array offset on value of type null
+in APPPATH\Controllers\TicketController.php on line 717.
+ 1 APPPATH\Controllers\TicketController.php(717): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'APPPATH\\Controllers\\TicketController.php', 717)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\TicketController->filterOpenTicketsByDev()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TicketController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(66): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+CRITICAL - 2023-12-15 04:01:01 --> Trying to access array offset on value of type null
+in APPPATH\Controllers\TicketController.php on line 717.
+ 1 APPPATH\Controllers\TicketController.php(717): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'APPPATH\\Controllers\\TicketController.php', 717)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\TicketController->filterOpenTicketsByDev()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TicketController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(66): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+CRITICAL - 2023-12-15 04:04:49 --> Trying to access array offset on value of type null
+in APPPATH\Controllers\TicketController.php on line 717.
+ 1 APPPATH\Controllers\TicketController.php(717): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'APPPATH\\Controllers\\TicketController.php', 717)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\TicketController->filterOpenTicketsByDev()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TicketController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(66): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+CRITICAL - 2023-12-15 04:16:15 --> Trying to access array offset on value of type null
+in APPPATH\Controllers\TicketController.php on line 717.
+ 1 APPPATH\Controllers\TicketController.php(717): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'APPPATH\\Controllers\\TicketController.php', 717)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\TicketController->filterOpenTicketsByDev()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TicketController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(66): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+CRITICAL - 2023-12-15 04:39:33 --> Trying to access array offset on value of type null
+in APPPATH\Controllers\TicketController.php on line 717.
+ 1 APPPATH\Controllers\TicketController.php(717): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'APPPATH\\Controllers\\TicketController.php', 717)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\TicketController->filterOpenTicketsByDev()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TicketController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(66): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+CRITICAL - 2023-12-15 15:46:24 --> Undefined variable $own
+in APPPATH\Controllers\TicketController.php on line 762.
+ 1 APPPATH\Controllers\TicketController.php(762): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $own', 'APPPATH\\Controllers\\TicketController.php', 762)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\TicketController->allOpenTickets()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TicketController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(66): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')

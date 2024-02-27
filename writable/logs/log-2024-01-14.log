@@ -1,0 +1,33 @@
+CRITICAL - 2024-01-14 08:59:47 --> Cannot redeclare display_error() (previously declared in D:\xampp\htdocs\itblaster\app\Helpers\Form_helper.php:2)
+in APPPATH\Views\auth\register.php on line 42.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2024-01-14 08:59:54 --> Cannot redeclare display_error() (previously declared in D:\xampp\htdocs\itblaster\app\Helpers\Form_helper.php:2)
+in APPPATH\Views\auth\register.php on line 42.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2024-01-14 09:00:14 --> Cannot redeclare display_error() (previously declared in D:\xampp\htdocs\itblaster\app\Helpers\Form_helper.php:2)
+in APPPATH\Views\auth\register.php on line 42.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2024-01-14 09:19:43 --> Undefined array key "project_alias_name"
+in APPPATH\Views\front\index.php on line 76.
+ 1 APPPATH\Views\front\index.php(76): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "project_alias_name"', 'APPPATH\\Views\\front\\index.php', 76)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\front\\index.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/index', [], true)
+ 5 APPPATH\Controllers\Home.php(33): view('front/index', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->index()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(66): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+CRITICAL - 2024-01-14 09:22:29 --> Undefined variable $project_name
+in APPPATH\Views\front\index.php on line 76.
+ 1 APPPATH\Views\front\index.php(76): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $project_name', 'APPPATH\\Views\\front\\index.php', 76)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\front\\index.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/index', [], true)
+ 5 APPPATH\Controllers\Home.php(33): view('front/index', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->index()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(66): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')

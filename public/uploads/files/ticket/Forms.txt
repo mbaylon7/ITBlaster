@@ -1,0 +1,223 @@
+ public function fwcc_astrl($form)
+    {
+        switch (strtolower($form)) {
+            case 'astrl':
+                if(isset($_POST['save_record'])){
+                    try {
+                        if (isset($_FILES['performer_sign_img']['name'])) {
+                            $uploaddir = './uploads/fwcc/images/';
+                            $sign1   = basename($_FILES['performer_sign_img']['name']);
+                            $uploadfile = $uploaddir . $sign1;
+                            move_uploaded_file($_FILES['performer_sign_img']['tmp_name'], $uploadfile);
+                        } else {
+                            $sign1 = '';
+                        }
+                        $astrl_list_id = $this->input->post('list_id');
+                        $table_id = 1;
+                        $this->db->select('astrl_record_table_id');
+                        $this->db->from('tbl_astrl_record');
+                        $query = $this->db->get();
+                        $existing_records = $query->result();
+
+                        foreach ($astrl_list_id as $index => $processing_id) {
+                            foreach ($existing_records as $record) {
+                                if ($record->astrl_record_table_id == $table_id) {
+                                    $table_id++;
+                                }
+                            }
+                            $insertedRecord = array(
+                                'astrl_record_table_id' => $table_id,
+                                'astrl_list_id' => $astrl_list_id[$index]
+                            );
+                            $cra_records_succ = $this->db->insert('tbl_astrl_record', $insertedRecord);
+                        }
+
+                        if ($cra_records_succ) {
+                            foreach ($existing_records as $record) {
+                                if ($record->astrl_record_table_id == $table_id) {
+                                    $table_id++;
+                                }
+                            }
+                            $for_reviewer = array(
+                                'astrl_record_table_id' => $table_id,
+                                'per_name' => $this->input->post('performer_name'),
+                                'per_sign' => $this->input->post('performer_sign'),
+                                'per_sign_image' => $sign1,
+                                'per_position' => $this->input->post('performer_position'),
+                                'per_date' => $this->input->post('perform_date')
+                            );
+                                $this->Queries->insert($for_reviewer, 'tbl_astrl_sign');
+                                $this->db->where_in('astrl_list_id', $astrl_list_id);
+                                $this->db->set('astrl_list_flag', 1);
+                                $this->db->update('tbl_astrl_list');
+                        }
+                        $this->session->set_flashdata('success_msg', 'Inserted Successfully!');
+                        redirect('forms/fwcc_astrl/astrl');
+                    } catch (\Exception $e) {
+                        log_message('error', $e->getMessage());
+                        redirect($this->agent->referrer());
+                    }
+
+                }
+                $this->content = 'astrl/astrl_form';
+                break;
+            default:
+                redirect($this->agent->referrer());
+                break;
+        }
+        $data['allergens'] = $this->Queries->select_no_where('*', 'astrl_countries');
+        $this->load->view($this->content, $data);
+    }
+
+    public function astrl_insert_form()
+{
+    $data = array(
+            'astrl_list_date' => $this->input->post('astrl_date'),
+            'astrl_list_location' => $this->input->post('astrl_loc'),
+            'astrl_list_eq_name' => $this->input->post('astrl_eq_name'),
+            'astrl_list_swab_p' => $this->input->post('astrl_swab_point'),
+            'astrl_list_allergen_type' => $this->input->post('allrgn'),
+            'astrl_list_allrgn_typ_cmmnt' => $this->input->post('detailsContent'),
+            'astrl_list_result' => $this->input->post('astrl_res'),
+            'astrl_list_crrctive_act' => $this->input->post('astrl_ca')
+    );
+        $this->Queries->insert_batch(array($data), 'tbl_astrl_list');
+    echo "Item added successfully";
+}
+
+    public function astrl_insert_setting_form()
+    {
+        // Insert allergen data
+        $allergenData = array(
+            'allergen' => $this->input->post('astrl_allergen')
+        );
+        $ifallergenname = $this->Queries->select_where_al('allergens_id', 'astrl_allergens', $allergenData, false, true);
+        if($ifallergenname) {
+            $allergenId = $ifallergenname['allergens_id'];
+        } else {
+            $allergenId = $this->Queries->insertData($allergenData, 'astrl_allergens');
+        }
+        // Insert country data
+        $countryData = array(
+            'name' => $this->input->post('astrl_cntry')
+        );
+        $ifname = $this->Queries->select_where_al('cntry_id', 'astrl_countries', $countryData, false, true);
+        if ($ifname) {
+            $countryId = $ifname['cntry_id'];
+        } else {
+            $countryId = $this->Queries->insertData($countryData, 'astrl_countries');
+        }
+        // Insert allergen-country mapping
+        //  'allergens_label' => $this->input->post('astrl_alrgen_lbl')
+        $allergenCountryData = array(
+            'allergen_id' => $allergenId,
+            'country_id' => $countryId,
+            'has_specificity' => $this->input->post('astrl_alrgen_specificity'),
+            'specificity_details' => $this->input->post('astrl_specificity_details'),
+            'ppm_value' => $this->input->post('astrl_ppm_value')
+        );
+        $this->Queries->insertData($allergenCountryData, 'astrl_allergen_countries');
+    }
+
+    public function astrl_show()
+    {
+        $data = $this->Queries->select_where('*', 'tbl_astrl_list', array('astrl_list_flag' => 0));
+        $output = '';
+
+        if (empty($data)) {
+            $output = '<tr><td colspan="10" style="text-align:center">No data</td></tr>';
+        } else {
+            foreach ($data as $row) {
+                if($row['astrl_list_result'] == 1){
+                        $res = 'Positive';
+                }else{
+                    $res = 'Negative';
+                }
+
+                if ($row['astrl_list_crrctive_act'] == '') {
+                    $cor = '<span style="text-align:center;">-</span>';
+                } else {
+                    $cor = $row['astrl_list_crrctive_act'];
+                }
+                if ($row['astrl_list_allrgn_typ_cmmnt'] == '') {
+                    $cmmnt = '<td class="astrl_editingtd">' . $row['astrl_list_allergen_type'] .'</td>';
+                } else {
+                    $cmmnt =  '<td class="astrl_editingtd">' . $row['astrl_list_allergen_type'] .'&nbsp<b>('.$row['astrl_list_allrgn_typ_cmmnt'].')</b></td>';
+                }
+                $output .= '
+            <tr>
+                <td> <a id="' . $row['astrl_list_id'] . '" class="astrl_delete_list" style="font-size:12px;color:red;"><i class="fa fa-times-circle-o" aria-hidden="true"></i></a>&nbsp' . $row['astrl_list_date'] . '</td>
+                <td class="astrl_editingtd" contenteditable="true" data-field="astrl_list_location" data-id="' . $row['astrl_list_id'] . '">' . $row['astrl_list_location'] . '</td>
+                 <td class="astrl_editingtd">' . $row['astrl_list_eq_name'] . '</td>
+                  <td class="astrl_editingtd">' . $row['astrl_list_swab_p'] . '</td>
+                '.$cmmnt.'
+                <td>' . $res. '</td>
+                <td style="text-align:center;">' . $cor . '</td>
+            </tr>
+            <input type="hidden" name="list_id[]" value="' . $row['astrl_list_id'] . '">';
+            }
+        }
+
+        echo $output;
+    }
+
+    public function astrl_delete_list()
+    {
+        $list_id = $this->input->post('list_id');
+        $result = $this->Queries->delete_record('tbl_astrl_list', $list_id, 'astrl_list_id');
+
+        if ($result) {
+            echo 'success';
+        } else {
+            echo 'error';
+        }
+    }
+
+    public function astrl_edit_td()
+    {
+        $field = $this->input->post('field');
+        $id = $this->input->post('id');
+        $value = $this->input->post('value');
+        $this->Queries->astrl_update_field($id, $field, $value);
+        echo 'success';
+    }
+
+    public function listModaldata()
+    {
+        $selectedValues = $this->input->post('selectedValues');
+        $result = $this->Queries->getSelectedAllergenCountries($selectedValues);
+        $distinctData = array();
+        $distinctPPM = array();
+         $output = '';
+        if (empty($result)) {
+            $output = 'No data';
+        } else {
+            $output  .= '<option Selected disabled>Select Allergen</option>';
+            foreach ($result as $row) {
+                if ($row['ppm_value'] < 10 && $row['has_specificity'] == 0) {
+                    $distinctData[$row['allergen']] = $row['allergen'];
+                    // $row['ppm_value'] >= 10 && 
+                } elseif ($row['has_specificity'] == 1 && $row['specificity_details'] == '' && $row['ppm_value'] != 0 && $row['ppm_value'] != ''  && !in_array($row['ppm_value'], $distinctPPM)) {
+                    $distinctPPM[] = $row['ppm_value']; // Add unique ppm_value to the array
+                    $output .= '<option value="' . $row['allergen'] . '-'. $row['ppm_value'] .'ppm">' . $row['allergen'] .'&nbsp&nbsp('. $row['ppm_value']. 'ppm)</option>';
+                } elseif ($row['has_specificity'] == 1 && $row['specificity_details'] == '' && $row['ppm_value'] != 0 && $row['ppm_value'] == ''  && !in_array($row['ppm_value'], $distinctPPM)) {
+                    $distinctPPM[] = $row['ppm_value']; // Add unique ppm_value to the array
+                    $output .= '<option value="' . $row['allergen'] . '-' . $row['ppm_value'] . 'ppm">' . $row['allergen'] .'</option>';
+                }
+            }
+            $outputDistinct = '';
+            foreach ($distinctData as $allergen) {
+                $outputDistinct .= '<option value="' . $allergen . '">' . $allergen . '</option>';
+            }
+
+            $output .= $outputDistinct;
+
+            foreach ($result as $row) {
+                if ($row['has_specificity'] == 1 && $row['specificity_details'] != '') {
+                    $output .= '<option value="' . $row['allergen'] . ' - ' . $row['specificity_details'] . '">' . $row['allergen'] . ' - ' . $row['specificity_details'] . '</option>';
+                }
+            }
+           
+        }
+        echo $output;
+    }

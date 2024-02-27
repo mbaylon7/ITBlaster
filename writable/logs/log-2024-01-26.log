@@ -1,0 +1,54 @@
+CRITICAL - 2024-01-26 16:36:33 --> Undefined variable $projects
+in APPPATH\Views\ticket\ticket_board_list.php on line 183.
+ 1 APPPATH\Views\ticket\ticket_board_list.php(183): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $projects', 'APPPATH\\Views\\ticket\\ticket_board_list.php', 183)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\ticket\\ticket_board_list.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('ticket/ticket_board_list', [], true)
+ 5 APPPATH\Controllers\TicketController.php(229): view('ticket/ticket_board_list', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\TicketController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TicketController))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(66): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+CRITICAL - 2024-01-26 16:45:37 --> Undefined variable $ticket
+in APPPATH\Controllers\TicketController.php on line 700.
+ 1 APPPATH\Controllers\TicketController.php(700): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $ticket', 'APPPATH\\Controllers\\TicketController.php', 700)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\TicketController->listAllProjects()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TicketController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(66): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+CRITICAL - 2024-01-26 16:45:58 --> Undefined variable $ticket
+in APPPATH\Controllers\TicketController.php on line 700.
+ 1 APPPATH\Controllers\TicketController.php(700): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $ticket', 'APPPATH\\Controllers\\TicketController.php', 700)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\TicketController->listAllProjects()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TicketController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(66): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+CRITICAL - 2024-01-26 16:46:15 --> Undefined array key "ticket_task_description"
+in APPPATH\Controllers\TicketController.php on line 705.
+ 1 APPPATH\Controllers\TicketController.php(705): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "ticket_task_description"', 'APPPATH\\Controllers\\TicketController.php', 705)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\TicketController->listAllProjects()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TicketController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(66): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+CRITICAL - 2024-01-26 16:47:38 --> Undefined variable $dev
+in APPPATH\Controllers\TicketController.php on line 706.
+ 1 APPPATH\Controllers\TicketController.php(706): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $dev', 'APPPATH\\Controllers\\TicketController.php', 706)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\TicketController->listAllProjects()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TicketController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(66): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+CRITICAL - 2024-01-26 17:00:26 --> syntax error, unexpected single-quoted string "Archived", expecting "]"
+in APPPATH\Controllers\TicketController.php on line 699.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(289): CodeIgniter\Autoloader\Autoloader->includeFile('APPPATH\\Controllers\\TicketController.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(267): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\TicketController')
+ 3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\TicketController')
+ 4 SYSTEMPATH\CodeIgniter.php(892): class_exists('\\App\\Controllers\\TicketController', true)
+ 5 SYSTEMPATH\CodeIgniter.php(486): CodeIgniter\CodeIgniter->startController()
+ 6 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(66): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')

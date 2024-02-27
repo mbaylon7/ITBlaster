@@ -1,0 +1,28 @@
+ERROR - 2023-10-17 15:30:23 --> mysqli_sql_exception: Unknown column 'tbl_logs.ticketid' in 'where clause' in /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:295
+Stack trace:
+#0 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(295): mysqli->query('SELECT `tbl_log...', 0)
+#1 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/Database/BaseConnection.php(691): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `tbl_log...')
+#2 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/Database/BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `tbl_log...')
+#3 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `tbl_log...', Array, false)
+#4 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/Model.php(241): CodeIgniter\Database\BaseBuilder->get()
+#5 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/BaseModel.php(618): CodeIgniter\Model->doFindAll(0, 0)
+#6 /home/itblaster/repositories/itblaster/codeigniter/app/Controllers/TicketController.php(554): CodeIgniter\BaseModel->findAll()
+#7 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/CodeIgniter.php(934): App\Controllers\TicketController->getTicketHistory('704')
+#8 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TicketController))
+#9 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 /home/itblaster/public_html/index.php(66): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2023-10-17 15:30:23 --> Unknown column 'tbl_logs.ticketid' in 'where clause'
+in SYSTEMPATH/Database/BaseConnection.php on line 645.
+ 1 SYSTEMPATH/Database/BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `tbl_logs`.*, `tbl_ticket`.`ticketid`, `user`.`name`
+FROM `tbl_logs`
+JOIN `tbl_ticket` ON `tbl_ticket`.`projectid` = `tbl_logs`.`projectid`
+JOIN `user` ON `user`.`id` = `tbl_logs`.`userid`
+WHERE `tbl_logs`.`ticketid` = :tbl_logs.ticketid:', [...], false)
+ 2 SYSTEMPATH/Model.php(241): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH/BaseModel.php(618): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH/Controllers/TicketController.php(554): CodeIgniter\BaseModel->findAll()
+ 5 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\TicketController->getTicketHistory('704')
+ 6 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TicketController))
+ 7 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH/index.php(66): CodeIgniter\CodeIgniter->run()

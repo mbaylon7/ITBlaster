@@ -1,0 +1,331 @@
+CRITICAL - 2023-09-18 07:12:40 --> Trying to access array offset on value of type null
+in APPPATH/Controllers/ProjectController.php on line 202.
+ 1 APPPATH/Controllers/ProjectController.php(202): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'APPPATH/Controllers/ProjectController.php', 202)
+ 2 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\ProjectController->getAllData()
+ 3 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProjectController))
+ 4 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(66): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-09-18 07:12:40 --> Trying to access array offset on value of type null
+in APPPATH/Controllers/ProjectController.php on line 202.
+ 1 APPPATH/Controllers/ProjectController.php(202): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'APPPATH/Controllers/ProjectController.php', 202)
+ 2 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\ProjectController->getAllData()
+ 3 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProjectController))
+ 4 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(66): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-09-18 07:12:45 --> mysqli_sql_exception: Unknown column 'parentid' in 'where clause' in /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:295
+Stack trace:
+#0 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(295): mysqli->query('SELECT *\nFROM `...', 0)
+#1 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/Database/BaseConnection.php(691): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/Database/BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/Model.php(241): CodeIgniter\Database\BaseBuilder->get()
+#5 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/BaseModel.php(618): CodeIgniter\Model->doFindAll(0, 0)
+#6 /home/itblaster/repositories/itblaster/codeigniter/app/Controllers/TicketController.php(252): CodeIgniter\BaseModel->findAll()
+#7 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/CodeIgniter.php(934): App\Controllers\TicketController->getTicketSubTasks('484')
+#8 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TicketController))
+#9 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 /home/itblaster/public_html/index.php(66): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2023-09-18 07:12:45 --> Unknown column 'parentid' in 'where clause'
+in SYSTEMPATH/Database/BaseConnection.php on line 645.
+ 1 SYSTEMPATH/Database/BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `tbl_ticket`
+WHERE `ticket_status_flag` = :ticket_status_flag:
+AND `ticket_label` != :ticket_label:
+AND `is_approved` = :is_approved:
+AND `parentid` = :parentid:
+AND `childid` = :childid:', [...], false)
+ 2 SYSTEMPATH/Model.php(241): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH/BaseModel.php(618): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH/Controllers/TicketController.php(252): CodeIgniter\BaseModel->findAll()
+ 5 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\TicketController->getTicketSubTasks('484')
+ 6 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TicketController))
+ 7 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH/index.php(66): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-09-18 07:12:49 --> mysqli_sql_exception: Unknown column 'parentid' in 'where clause' in /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:295
+Stack trace:
+#0 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(295): mysqli->query('SELECT *\nFROM `...', 0)
+#1 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/Database/BaseConnection.php(691): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/Database/BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/Model.php(241): CodeIgniter\Database\BaseBuilder->get()
+#5 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/BaseModel.php(618): CodeIgniter\Model->doFindAll(0, 0)
+#6 /home/itblaster/repositories/itblaster/codeigniter/app/Controllers/TicketController.php(252): CodeIgniter\BaseModel->findAll()
+#7 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/CodeIgniter.php(934): App\Controllers\TicketController->getTicketSubTasks('326')
+#8 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TicketController))
+#9 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 /home/itblaster/public_html/index.php(66): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2023-09-18 07:12:49 --> Unknown column 'parentid' in 'where clause'
+in SYSTEMPATH/Database/BaseConnection.php on line 645.
+ 1 SYSTEMPATH/Database/BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `tbl_ticket`
+WHERE `ticket_status_flag` = :ticket_status_flag:
+AND `ticket_label` != :ticket_label:
+AND `is_approved` = :is_approved:
+AND `parentid` = :parentid:
+AND `childid` = :childid:', [...], false)
+ 2 SYSTEMPATH/Model.php(241): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH/BaseModel.php(618): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH/Controllers/TicketController.php(252): CodeIgniter\BaseModel->findAll()
+ 5 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\TicketController->getTicketSubTasks('326')
+ 6 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TicketController))
+ 7 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH/index.php(66): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-09-18 07:13:50 --> Trying to access array offset on value of type null
+in APPPATH/Controllers/ProjectController.php on line 202.
+ 1 APPPATH/Controllers/ProjectController.php(202): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'APPPATH/Controllers/ProjectController.php', 202)
+ 2 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\ProjectController->getAllData()
+ 3 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProjectController))
+ 4 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(66): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-09-18 07:13:50 --> Trying to access array offset on value of type null
+in APPPATH/Controllers/ProjectController.php on line 202.
+ 1 APPPATH/Controllers/ProjectController.php(202): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'APPPATH/Controllers/ProjectController.php', 202)
+ 2 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\ProjectController->getAllData()
+ 3 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProjectController))
+ 4 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(66): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-09-18 07:15:19 --> mysqli_sql_exception: Unknown column 'parentid' in 'where clause' in /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:295
+Stack trace:
+#0 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(295): mysqli->query('SELECT *\nFROM `...', 0)
+#1 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/Database/BaseConnection.php(691): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/Database/BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/Model.php(241): CodeIgniter\Database\BaseBuilder->get()
+#5 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/BaseModel.php(618): CodeIgniter\Model->doFindAll(0, 0)
+#6 /home/itblaster/repositories/itblaster/codeigniter/app/Controllers/TicketController.php(252): CodeIgniter\BaseModel->findAll()
+#7 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/CodeIgniter.php(934): App\Controllers\TicketController->getTicketSubTasks('497')
+#8 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TicketController))
+#9 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 /home/itblaster/public_html/index.php(66): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2023-09-18 07:15:19 --> Unknown column 'parentid' in 'where clause'
+in SYSTEMPATH/Database/BaseConnection.php on line 645.
+ 1 SYSTEMPATH/Database/BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `tbl_ticket`
+WHERE `ticket_status_flag` = :ticket_status_flag:
+AND `ticket_label` != :ticket_label:
+AND `is_approved` = :is_approved:
+AND `parentid` = :parentid:
+AND `childid` = :childid:', [...], false)
+ 2 SYSTEMPATH/Model.php(241): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH/BaseModel.php(618): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH/Controllers/TicketController.php(252): CodeIgniter\BaseModel->findAll()
+ 5 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\TicketController->getTicketSubTasks('497')
+ 6 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TicketController))
+ 7 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH/index.php(66): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-09-18 14:07:51 --> Trying to access array offset on value of type null
+in APPPATH/Controllers/ProjectController.php on line 202.
+ 1 APPPATH/Controllers/ProjectController.php(202): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'APPPATH/Controllers/ProjectController.php', 202)
+ 2 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\ProjectController->getAllData()
+ 3 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProjectController))
+ 4 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(66): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-09-18 14:07:51 --> Trying to access array offset on value of type null
+in APPPATH/Controllers/ProjectController.php on line 202.
+ 1 APPPATH/Controllers/ProjectController.php(202): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'APPPATH/Controllers/ProjectController.php', 202)
+ 2 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\ProjectController->getAllData()
+ 3 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProjectController))
+ 4 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(66): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-09-18 14:07:54 --> mysqli_sql_exception: Unknown column 'parentid' in 'where clause' in /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:295
+Stack trace:
+#0 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(295): mysqli->query('SELECT *\nFROM `...', 0)
+#1 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/Database/BaseConnection.php(691): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/Database/BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/Model.php(241): CodeIgniter\Database\BaseBuilder->get()
+#5 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/BaseModel.php(618): CodeIgniter\Model->doFindAll(0, 0)
+#6 /home/itblaster/repositories/itblaster/codeigniter/app/Controllers/TicketController.php(252): CodeIgniter\BaseModel->findAll()
+#7 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/CodeIgniter.php(934): App\Controllers\TicketController->getTicketSubTasks('484')
+#8 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TicketController))
+#9 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 /home/itblaster/public_html/index.php(66): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2023-09-18 14:07:54 --> Unknown column 'parentid' in 'where clause'
+in SYSTEMPATH/Database/BaseConnection.php on line 645.
+ 1 SYSTEMPATH/Database/BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `tbl_ticket`
+WHERE `ticket_status_flag` = :ticket_status_flag:
+AND `ticket_label` != :ticket_label:
+AND `is_approved` = :is_approved:
+AND `parentid` = :parentid:
+AND `childid` = :childid:', [...], false)
+ 2 SYSTEMPATH/Model.php(241): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH/BaseModel.php(618): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH/Controllers/TicketController.php(252): CodeIgniter\BaseModel->findAll()
+ 5 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\TicketController->getTicketSubTasks('484')
+ 6 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TicketController))
+ 7 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH/index.php(66): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-09-18 14:08:03 --> mysqli_sql_exception: Unknown column 'parentid' in 'where clause' in /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:295
+Stack trace:
+#0 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(295): mysqli->query('SELECT *\nFROM `...', 0)
+#1 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/Database/BaseConnection.php(691): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/Database/BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/Model.php(241): CodeIgniter\Database\BaseBuilder->get()
+#5 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/BaseModel.php(618): CodeIgniter\Model->doFindAll(0, 0)
+#6 /home/itblaster/repositories/itblaster/codeigniter/app/Controllers/TicketController.php(252): CodeIgniter\BaseModel->findAll()
+#7 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/CodeIgniter.php(934): App\Controllers\TicketController->getTicketSubTasks('483')
+#8 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TicketController))
+#9 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 /home/itblaster/public_html/index.php(66): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2023-09-18 14:08:03 --> Unknown column 'parentid' in 'where clause'
+in SYSTEMPATH/Database/BaseConnection.php on line 645.
+ 1 SYSTEMPATH/Database/BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `tbl_ticket`
+WHERE `ticket_status_flag` = :ticket_status_flag:
+AND `ticket_label` != :ticket_label:
+AND `is_approved` = :is_approved:
+AND `parentid` = :parentid:
+AND `childid` = :childid:', [...], false)
+ 2 SYSTEMPATH/Model.php(241): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH/BaseModel.php(618): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH/Controllers/TicketController.php(252): CodeIgniter\BaseModel->findAll()
+ 5 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\TicketController->getTicketSubTasks('483')
+ 6 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TicketController))
+ 7 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH/index.php(66): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-09-18 14:08:06 --> mysqli_sql_exception: Unknown column 'parentid' in 'where clause' in /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:295
+Stack trace:
+#0 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(295): mysqli->query('SELECT *\nFROM `...', 0)
+#1 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/Database/BaseConnection.php(691): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/Database/BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/Model.php(241): CodeIgniter\Database\BaseBuilder->get()
+#5 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/BaseModel.php(618): CodeIgniter\Model->doFindAll(0, 0)
+#6 /home/itblaster/repositories/itblaster/codeigniter/app/Controllers/TicketController.php(252): CodeIgniter\BaseModel->findAll()
+#7 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/CodeIgniter.php(934): App\Controllers\TicketController->getTicketSubTasks('483')
+#8 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TicketController))
+#9 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 /home/itblaster/public_html/index.php(66): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2023-09-18 14:08:06 --> Unknown column 'parentid' in 'where clause'
+in SYSTEMPATH/Database/BaseConnection.php on line 645.
+ 1 SYSTEMPATH/Database/BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `tbl_ticket`
+WHERE `ticket_status_flag` = :ticket_status_flag:
+AND `ticket_label` != :ticket_label:
+AND `is_approved` = :is_approved:
+AND `parentid` = :parentid:
+AND `childid` = :childid:', [...], false)
+ 2 SYSTEMPATH/Model.php(241): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH/BaseModel.php(618): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH/Controllers/TicketController.php(252): CodeIgniter\BaseModel->findAll()
+ 5 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\TicketController->getTicketSubTasks('483')
+ 6 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TicketController))
+ 7 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH/index.php(66): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-09-18 14:11:49 --> Trying to access array offset on value of type null
+in APPPATH/Controllers/ProjectController.php on line 202.
+ 1 APPPATH/Controllers/ProjectController.php(202): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'APPPATH/Controllers/ProjectController.php', 202)
+ 2 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\ProjectController->getAllData()
+ 3 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProjectController))
+ 4 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(66): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-09-18 14:12:03 --> Trying to access array offset on value of type null
+in APPPATH/Controllers/ProjectController.php on line 202.
+ 1 APPPATH/Controllers/ProjectController.php(202): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'APPPATH/Controllers/ProjectController.php', 202)
+ 2 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\ProjectController->getAllData()
+ 3 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProjectController))
+ 4 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(66): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-09-18 14:12:33 --> Trying to access array offset on value of type null
+in APPPATH/Controllers/ProjectController.php on line 202.
+ 1 APPPATH/Controllers/ProjectController.php(202): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'APPPATH/Controllers/ProjectController.php', 202)
+ 2 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\ProjectController->getAllData()
+ 3 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProjectController))
+ 4 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(66): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-09-18 14:12:34 --> Trying to access array offset on value of type null
+in APPPATH/Controllers/ProjectController.php on line 202.
+ 1 APPPATH/Controllers/ProjectController.php(202): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'APPPATH/Controllers/ProjectController.php', 202)
+ 2 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\ProjectController->getAllData()
+ 3 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProjectController))
+ 4 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(66): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-09-18 14:12:57 --> mysqli_sql_exception: Unknown column 'parentid' in 'where clause' in /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:295
+Stack trace:
+#0 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(295): mysqli->query('SELECT *\nFROM `...', 0)
+#1 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/Database/BaseConnection.php(691): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/Database/BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/Model.php(241): CodeIgniter\Database\BaseBuilder->get()
+#5 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/BaseModel.php(618): CodeIgniter\Model->doFindAll(0, 0)
+#6 /home/itblaster/repositories/itblaster/codeigniter/app/Controllers/TicketController.php(252): CodeIgniter\BaseModel->findAll()
+#7 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/CodeIgniter.php(934): App\Controllers\TicketController->getTicketSubTasks('564')
+#8 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TicketController))
+#9 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 /home/itblaster/public_html/index.php(66): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2023-09-18 14:12:57 --> Unknown column 'parentid' in 'where clause'
+in SYSTEMPATH/Database/BaseConnection.php on line 645.
+ 1 SYSTEMPATH/Database/BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `tbl_ticket`
+WHERE `ticket_status_flag` = :ticket_status_flag:
+AND `ticket_label` != :ticket_label:
+AND `is_approved` = :is_approved:
+AND `parentid` = :parentid:
+AND `childid` = :childid:', [...], false)
+ 2 SYSTEMPATH/Model.php(241): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH/BaseModel.php(618): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH/Controllers/TicketController.php(252): CodeIgniter\BaseModel->findAll()
+ 5 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\TicketController->getTicketSubTasks('564')
+ 6 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TicketController))
+ 7 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH/index.php(66): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-09-18 16:06:13 --> mysqli_sql_exception: Unknown column 'parentid' in 'where clause' in /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:295
+Stack trace:
+#0 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(295): mysqli->query('SELECT *\nFROM `...', 0)
+#1 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/Database/BaseConnection.php(691): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/Database/BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/Model.php(241): CodeIgniter\Database\BaseBuilder->get()
+#5 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/BaseModel.php(618): CodeIgniter\Model->doFindAll(0, 0)
+#6 /home/itblaster/repositories/itblaster/codeigniter/app/Controllers/TicketController.php(252): CodeIgniter\BaseModel->findAll()
+#7 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/CodeIgniter.php(934): App\Controllers\TicketController->getTicketSubTasks('564')
+#8 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TicketController))
+#9 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 /home/itblaster/public_html/index.php(66): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2023-09-18 16:06:13 --> Unknown column 'parentid' in 'where clause'
+in SYSTEMPATH/Database/BaseConnection.php on line 645.
+ 1 SYSTEMPATH/Database/BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `tbl_ticket`
+WHERE `ticket_status_flag` = :ticket_status_flag:
+AND `ticket_label` != :ticket_label:
+AND `is_approved` = :is_approved:
+AND `parentid` = :parentid:
+AND `childid` = :childid:', [...], false)
+ 2 SYSTEMPATH/Model.php(241): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH/BaseModel.php(618): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH/Controllers/TicketController.php(252): CodeIgniter\BaseModel->findAll()
+ 5 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\TicketController->getTicketSubTasks('564')
+ 6 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TicketController))
+ 7 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH/index.php(66): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-09-18 16:12:49 --> Trying to access array offset on value of type null
+in APPPATH/Controllers/ProjectController.php on line 202.
+ 1 APPPATH/Controllers/ProjectController.php(202): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'APPPATH/Controllers/ProjectController.php', 202)
+ 2 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\ProjectController->getAllData()
+ 3 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProjectController))
+ 4 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(66): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-09-18 16:12:50 --> Trying to access array offset on value of type null
+in APPPATH/Controllers/ProjectController.php on line 202.
+ 1 APPPATH/Controllers/ProjectController.php(202): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'APPPATH/Controllers/ProjectController.php', 202)
+ 2 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\ProjectController->getAllData()
+ 3 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProjectController))
+ 4 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(66): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-09-18 16:26:33 --> Trying to access array offset on value of type null
+in APPPATH/Controllers/ProjectController.php on line 202.
+ 1 APPPATH/Controllers/ProjectController.php(202): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'APPPATH/Controllers/ProjectController.php', 202)
+ 2 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\ProjectController->getAllData()
+ 3 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProjectController))
+ 4 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(66): CodeIgniter\CodeIgniter->run()

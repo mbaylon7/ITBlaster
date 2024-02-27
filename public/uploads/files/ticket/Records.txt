@@ -1,0 +1,488 @@
+  public function fwcc_astrl($form, $extra = null)
+    {
+        switch (strtolower($form)) {
+            case 'astrl':
+                if (isset($_POST['update_record'])) {
+                    try {
+                        if (isset($_FILES['reviewer_sign_img']['name'])) {
+                            $uploaddir = './uploads/fwcc/images/';
+                            $sign1 = basename($_FILES['reviewer_sign_img']['name']);
+                            $uploadfile = $uploaddir . $sign1;
+                            move_uploaded_file($_FILES['reviewer_sign_img']['tmp_name'], $uploadfile);
+                        } else {
+                            $sign1 = '';
+                        }
+
+                        $astrl_record_id = $this->input->post('record_id');
+                        $for_reviewer = array(
+                            'rev_name' => $this->input->post('reviewer_name'),
+                            'rev_sign' => $this->input->post('reviewer_sign'),
+                            'rev_sign_image' => $sign1,
+                            'rev_position' => $this->input->post('r_position'),
+                            'rev_date' => $this->input->post('reviewed_date'),
+                            'ver_name' => $this->input->post('approver_name')
+                        );
+                        $this->Queries->update_where($for_reviewer, 'tbl_astrl_sign', ['astrl_record_table_id' => $astrl_record_id]);
+                        $this->session->set_flashdata('success_msg', 'Inserted Successfully!');
+                        redirect('records/fwcc_astrl/astrl');
+                    } catch (\Exception $e) {
+                        log_message('error', $e->getMessage());
+                        redirect($this->agent->referrer());
+                    }
+                }
+                if (isset($_POST['update_reveiwer'])) {
+                    try {
+                        if (isset($_FILES['approver_sign_img']['name'])) {
+                            $uploaddir = './uploads/fwcc/images/';
+                            $sign2 = $_FILES['approver_sign_img']['name'];
+                            $uploadfile = $uploaddir . $sign2;
+                            move_uploaded_file($_FILES['approver_sign_img']['tmp_name'], $uploadfile);
+                        } else {
+                            $sign2 = '';
+                        }
+
+                        $astrl_record_id = $this->input->post('record_id');
+                        $for_reviewer = [
+                            'ver_name' => $this->input->post('approver_name'),
+                            'ver_sign' => $this->input->post('approver_sign'),
+                            'ver_sign_image' => $sign2,
+                            'ver_position' => $this->input->post('a_position'),
+                            'ver_date' => $this->input->post('approved_date')
+                        ];
+
+                        $this->Queries->update_where($for_reviewer, 'tbl_astrl_sign', ['astrl_record_table_id' => $astrl_record_id]);
+                        $this->session->set_flashdata('success_msg', 'Inserted Successfully!');
+                        redirect('records/fwcc_astrl/astrl');
+                    } catch (\Exception $e) {
+                        log_message('error', $e->getMessage());
+                        redirect($this->agent->referrer());
+                    }
+                }
+                $this->content = 'astrl/astrl_pending';
+                break;
+             case 'list':
+                $this->content = 'astrl/astrl_list';
+                break;
+
+              default:
+                redirect($this->agent->referrer());
+                break;
+        }
+        $this->load->view($this->content);
+    }
+
+    public function astrl_show_list()
+    {
+        $data = $this->Queries->show_where_astrl('tbl_astrl_record');
+        $output = '';
+        $table_ids = array();
+        foreach ($data as $row) {
+            if (!empty($row->ver_sign)) {
+                if (!in_array($row->astrl_record_table_id, $table_ids)) {
+                    $table_ids[] = $row->astrl_record_table_id;
+                    $output .= '
+                <tr>
+                    <td>' . sprintf("%03d", $row->astrl_record_id) . '</td>
+                    <td><a id="' . $row->astrl_record_table_id . '">' . $row->record_created . '</a></td>
+                        <td style="text-align:center;"> 
+                            <a style="font-size:20px;text-align:center" class="select-record" data-toggle="modal" data-target="#cartModal"  id="' . $row->astrl_record_table_id . '"><i class="fa fa-eye" aria-hidden="true"></i></a>
+                          </td>
+                </tr>
+                ';
+                }
+            }
+        }
+        echo $output;
+    }
+
+    public function astrl_show_list_review()
+    {
+        $data = $this->Queries->show_where_astrl('tbl_astrl_record');
+        $output = '';
+        $table_ids = array();
+        foreach ($data as $row) {
+            if (!in_array($row->astrl_record_table_id, $table_ids)) {
+                $table_ids[] = $row->astrl_record_table_id;
+                if ($row->rev_name == '' && $row->ver_name == '') {
+
+                    $output .= '
+                <tr>
+                    <td>' . sprintf("%03d", $row->astrl_list_id) . '</td>
+                    <td><a  id="' . $row->astrl_record_table_id . '" >' . $row->record_created . '</a></td>
+                    <td style="text-align:center;"> 
+                    <a style="font-size:20px;text-align:center" class="record_reivew" data-toggle="modal" data-target="#cartModal1"  id="' . $row->astrl_record_table_id . '">
+                    <i class="fa fa-pencil" aria-hidden="true"></i>
+                    </a>
+                    </td>
+                      <td style="text-align:center;"> 
+                    <a style="font-size:20px;text-align:center" class="record_reivew_verifier" data-toggle="modal" data-target="#cartModal2"   id="' . $row->astrl_record_table_id . '">
+                    <i class="fa fa-pencil" aria-hidden="true"></i>
+                    </a>
+                    </td>
+                </tr>
+            ';
+                }else if ($row->rev_name != ''&& $row->ver_name == '') {
+                    $output .= '
+                <tr>
+                    <td>' . sprintf("%03d", $row->astrl_list_id) . '</td>
+                    <td><a  id="' . $row->astrl_record_table_id . '" >' . $row->record_created . '</a></td>
+                    <td style="text-align:center;" disabled> 
+                    <a disabled style="font-size:20px;text-align:center;color:green">
+                    <i class="fa fa-check" aria-hidden="true"></i>
+                    </a>
+                    </td>
+                      <td style="text-align:center;"> 
+                    <a style="font-size:20px;text-align:center" class="record_reivew_verifier" data-toggle="modal" data-target="#cartModal2"  id="' . $row->astrl_record_table_id . '">
+                    <i class="fa fa-pencil" aria-hidden="true"></i>
+                    </a>
+                    </td>
+                      
+                </tr>
+            ';
+                } else if ($row->rev_name == '' && $row->ver_name != '') {
+                    $output .= '
+                <tr>
+                    <td>' . sprintf("%03d", $row->astrl_list_id) . '</td>
+                    <td><a  id="' . $row->astrl_record_table_id . '" >' . $row->record_created . '</a></td>
+                    <td style="text-align:center;"> 
+                    <a style="font-size:20px;text-align:center" class="record_reivew" data-toggle="modal" data-target="#cartModal1"  id="' . $row->astrl_record_table_id . '">
+                    <i class="fa fa-pencil" aria-hidden="true"></i>
+                    </a>
+                    </td>
+                      <td style="text-align:center;"> 
+                    <a disabledstyle="font-size:20px;text-align:center" class="record_reivew_verifier" data-toggle="modal" data-target="#cartModal2"  id="' . $row->astrl_record_table_id . '">
+                    <i class="fa fa-pencil" aria-hidden="true"></i>
+                    </a>
+                    </td>
+        
+                </tr>
+            ';
+                }
+            }
+        }
+        echo $output;
+    }
+
+    public function astrl_show_record_data()
+    {
+        $record_id = $this->input->post('record_id');
+        $data = $this->Queries->astrl_show_fetch_record($record_id);
+        $output = '';
+        $output .= ' <div class="modal-body">
+                            <table class="table table-bordered" id="record_data_print" style="font-size: 13px!important;"
+                            id="table" 
+			 data-toggle="table"
+			 data-search="true"
+			 data-filter-control="true" 
+			 data-show-export="true"
+			 data-click-to-select="true"
+			 data-toolbar="#toolbar">
+                            <thead>
+                            <tr>
+                             <th colspan="10" style="text-align:center;">
+                                    <img width="15%" src="' . base_url("assets/images/logo.png") . '" alt="" srcset="">
+                                    <h2 style="text-align:center;" class="modal-title" id="exampleModalLabel">
+                                    ALLERGEN SWAB TESTING RESULT LOG																											
+                            </h2>
+                            <br>
+                             </th>
+                            </tr>
+                            </thead>
+                            <thead style="font-size:0.5rem;text-align:center;">
+                                <tr>
+                                <th>Date</th>
+                                <th>Location</th>
+                                <th>Equipment Name</th>
+                                <th>Swabbing Points</th>
+                                <th>Allergen Type</th>
+                                <th>Result (Positive or Negative)</th>
+                                <th>Corrective Action Taken (in case of Positive Result)</th>
+                                </tr>
+                            </thead>
+                            <tbody>';
+        if (count($data) > 0) {
+
+            foreach ($data as $key => $record) {
+                if ($record->astrl_list_result == 1) {
+                    $res = 'Positive';
+                } else {
+                    $res = 'Negative';
+                }
+
+                if ($record->astrl_list_crrctive_act == '') {
+                    $cor = '<span style="text-align:center;">-</span>';
+                } else {
+                    $cor = $record->astrl_list_crrctive_act;
+                }
+                $type = ($record->astrl_list_allrgn_typ_cmmnt == '') ? '<td>' . $record->astrl_list_allergen_type . '</td>' : '<td>' . $record->astrl_list_allergen_type . '&nbsp<b>(' .  $record->astrl_list_allrgn_typ_cmmnt  . ')</b></td>';
+                $output .= '
+                        <tr style="text-align:center;">
+                            <td>' .  $record->astrl_list_date . '</td>
+                            <td>' . $record->astrl_list_location . '</td>
+                              <td>' . $record->astrl_list_eq_name . '</td>
+                                <td>' . $record->astrl_list_swab_p . '</td>
+                            ' .$type .'
+                            <td>' .  $res  . '</td>
+                            <td>' . $cor . '</td>
+                        </tr>';
+            }
+        } else {
+            $output = '<tr><td colspan="8">Record not found</td></tr>';
+        }
+
+        $output .= '  
+            </tbody>
+            </table> 
+        </div>
+        ';
+        $imageData = $record->per_sign;
+        $imageData1 = $record->ver_sign;
+        $imageData2 = $record->rev_sign;
+
+        $image = '';
+        $image1 = '';
+        $image2 = '';
+
+        if (empty($imageData)) {
+            $baseUrl = base_url("uploads/fwcc/images/");
+            $imageData = $record->per_sign_image;
+            $image = '<img width="30%" src="' . $baseUrl . $imageData . '" alt="Pending Signature">';
+        } else {
+            $image = '<img width="40%" src="' . $imageData . '">';
+        }
+
+        if (empty($imageData1)) {
+            $baseUrl = base_url("uploads/fwcc/images/");
+            $imageData1 = $record->ver_sign_image;
+            $image1 = '<img width="30%" src="' . $baseUrl . $imageData1 . '" alt="Pending Signature">';
+        } else {
+            $image1 = '<img width="40%" src="' . $imageData1 . '">';
+        }
+        if (empty($imageData2)) {
+            $baseUrl = base_url("uploads/fwcc/images/");
+            $imageData1 = $record->ver_sign_image;
+            $image2 = '<img width="30%" src="' . $baseUrl . $imageData2 . '" alt="Pending Signature">';
+        } else {
+            $image2 = '<img width="40%" src="' . $imageData2 . '">';
+        }
+        // reviewed date
+        $per_date =  $record->per_date;
+        $per_formattedDate = date('M j, Y', strtotime($per_date));
+        // approval date
+        $rev_date =  $record->rev_date;
+        $rev_formattedDate = date('M j, Y', strtotime($rev_date));
+        // verifier date
+        $ver_date =  $record->ver_date;
+        $ver_formattedDate = date('M j, Y', strtotime($ver_date));
+        $output .= '
+        <hr>
+                <table id="record_data_print_signature" class="signature-container-wrapper">
+            <tr>
+                <td class="signature-container">
+               <h6>Conducted By:<h6><br> ' . $image . '
+                <hr>
+                <div class="name">' . $record->per_name . '</div>
+                <div class="position">' . $record->per_position . '</div>
+                <div class="date">' . $per_formattedDate . '</div>
+              
+                </td>
+                  <td class="signature-container">
+                <h6>Verified By:<h6><br> ' . $image1 . '
+                <hr>
+                <div class="name">' . $record->ver_name . '</div>
+                <div class="position">' . $record->ver_position . '</div>
+                <div class="date">' . $ver_formattedDate . '</div>
+                </td>
+                   <td class="signature-container">
+                <h6>Verified By:<h6><br> ' . $image2 . '
+                <hr>
+                <div class="name">' . $record->rev_name . '</div>
+                <div class="position">' . $record->rev_position . '</div>
+                <div class="date">' . $rev_formattedDate . '</div>
+                </td>
+            </tr>
+            </table>
+            </div>
+            <hr>
+            <div class="modal-footer border-top-0 d-flex">
+            <a onclick="printDivContent()" class="btn btn-success"><i class="fa fa-print" aria-hidden="true"></i></a>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>';
+        echo $output;
+    }
+    public function astrl_show_record_data_review()
+    {
+        $record_id = $this->input->post('record_id');
+        $data = $this->Queries->astrl_show_fetch_record($record_id);
+        $output = '';
+        $output .=
+            ' <div class="modal-body">
+                            <table id="review_data_sort" 
+                                    class="table table-bordered" 
+                                    style="font-size: 13px!important;"
+                                    data-toggle="table"
+                                    data-search="true"
+                                    data-filter-control="true" 
+                                    data-show-export="true"
+                                    data-click-to-select="true"
+                                    data-toolbar="#toolbar">
+                            <thead>
+                            <tr>
+                             <th colspan="10" style="text-align:center;">
+                            <img width="15%" src="' . base_url("assets/images/logo.png") . '" alt="" srcset="">
+                            <h5 style="text-align:center;" class="modal-title" id="exampleModalLabel">
+                            ALLERGEN SWAB TESTING RESULT LOG																											
+                            </th>
+                            </h5>
+                            </tr>
+                            </thead>
+                            <thead style="font-size:0.7rem;text-align:center;">
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Location</th>
+                                    <th>Equipment Name</th>
+                                    <th>Swabbing Points</th>
+                                    <th>Allergen Type</th>
+                                    <th>Result (Positive or Negative)</th>
+                                    <th>Corrective Action Taken (in case of Positive Result)</th>
+                                </tr>
+                            </thead>
+                            <tbody>';
+
+        if (count($data) > 0) {
+
+            foreach ($data as $key => $record) {
+
+                if ($record->per_date == '') {
+                    $per_formattedDate = '';
+                } else {
+                    $per_date =  $record->per_date;
+                    $per_timestamp = strtotime($per_date);
+                    $per_formattedDate = date('M j, Y', $per_timestamp);
+                }
+                // approval date
+                if ($record->rev_date == '') {
+                    $rev_formattedDate = '';
+                } else {
+                    $rev_date =  $record->rev_date;
+                    $rev_timestamp = strtotime($rev_date);
+                    $rev_formattedDate = date('M j, Y', $rev_timestamp);
+                }
+                // approval date
+                if ($record->ver_date == '') {
+                    $ver_formattedDate = '';
+                } else {
+                    $ver_date =  $record->ver_date;
+                    $ver_timestamp = strtotime($ver_date);
+                    $ver_formattedDate = date('M j, Y', $ver_timestamp);
+                }
+                $results = ($record->astrl_list_result == 1) ? 'Positive' : 'Negative';
+                $cor = ($record->astrl_list_crrctive_act == '') ? '<span style="text-align:center;">-</span>' : $record->astrl_list_crrctive_act;
+                $type = ($record->astrl_list_allrgn_typ_cmmnt == '') ? '<td>' . $record->astrl_list_allergen_type. '</td>' : '<td>' . $record->astrl_list_allergen_type. '&nbsp<b>(' .  $record->astrl_list_allrgn_typ_cmmnt  . ')</b></td>';
+                $output .= '
+        <tr>
+            <td>' .  $record->astrl_list_date . '</td>
+            <td>' . $record->astrl_list_location . '</td>
+            <td>' . $record->astrl_list_eq_name . '</td>
+            <td>' . $record->astrl_list_swab_p . '</td>
+            '.$type.'
+            <td>' . $results . '</td>
+            <td>' . $cor . '</td>                 
+            </tr>';
+            }
+        } else {
+            $output = '<tr><td colspan="8">Record not found</td></tr>';
+        }
+        $imageData = $record->per_sign;
+        $imageData1 = $record->ver_sign;
+        $imageData2 = $record->rev_sign;
+
+        $image = '';
+        $image1 = '';
+        $image2 = '';
+
+        if (empty($imageData)) {
+            $baseUrl = base_url("uploads/fwcc/images/");
+            $imageData = $record->per_sign_image;
+            $image = '<img width="30%" src="' . $baseUrl . $imageData . '" alt="Pending Signature">';
+        } else {
+            $image = '<img width="40%" src="' . $imageData . '">';
+        }
+
+        if (empty($imageData1)) {
+            $baseUrl = base_url("uploads/fwcc/images/");
+            $imageData1 = $record->ver_sign_image;
+            $image1 = '<img width="30%" src="' . $baseUrl . $imageData1 . '" alt="Pending Signature">';
+        } else {
+            $image1 = '<img width="40%" src="' . $imageData1 . '">';
+        }
+        if (empty($imageData2)) {
+            $baseUrl = base_url("uploads/fwcc/images/");
+            $imageData1 = $record->rev_sign_image;
+            $image2 = '<img width="30%" src="' . $baseUrl . $imageData2 . '" alt="Pending Signature">';
+        } else {
+            $image2 = '<img width="40%" src="' . $imageData2 . '">';
+        }
+        $output .= '  
+    </tbody>
+    </table> 
+   
+</div>
+<input type="hidden" name="record_id" value="' . $record_id . '">
+<div class="container">
+  <table class="table table-bordered" style=" font-size: 13px!important;">
+                        <tr>
+                            <td class="text-center fw-bold">Conducted By:</td>
+                            <td class="text-center fw-bold">Reviewed By:</td>
+                            <td class="text-center fw-bold">Approved By:</td>
+                        </tr>
+                        <tr>
+                            <td class="text-center" style="width: 270px;">
+                                <div class="m-3 mb-5" style="display:flex; justify-content:center;">
+                                    <div>
+                                        ' . $image . '
+                                           <hr>
+                                        <div class="name">' . $record->per_name . '</div>
+                                        <div class="position">' . $record->per_position . '</div>
+                                         <div class="date">' . $per_formattedDate . '</div>
+                                    </div>
+                                </div>
+                            </td>
+                               <td class="text-center" style="width: 270px;">
+                                <div class="m-3 mb-5"  style="display:flex; justify-content:center;">
+                                    <div>
+                                     ' . $image2 . '
+                                           <hr>
+                                        <div class="name">' . $record->rev_name . '</div>
+                                        <div class="position">' . $record->rev_position . '</div>
+                                           <div class="date">' . $rev_formattedDate . '</div>
+                                    </div>
+                                </div>
+                            </td>
+                              <td class="text-center" style="width: 270px;">
+                                <div class="m-3 mb-5"  style="display:flex; justify-content:center;">
+                                    <div>
+                                     ' . $image1 . '
+                                           <hr>
+                                        <div class="name">' . $record->ver_name . '</div>
+                                        <div class="position">' . $record->ver_position . '</div>
+                                           <div class="date">' . $ver_formattedDate . '</div>
+                                    </div>
+                                </div>
+                            </td>
+                             
+                        </tr>
+                    </table>
+                    </div>
+';
+        echo $output;
+    }
+
+    public function astrl_edit_td()
+    {
+        $field = $this->input->post('field');
+        $id = $this->input->post('id');
+        $value = $this->input->post('value');
+        $this->Queries->astrl_update_field($id, $field, $value);
+        echo 'success';
+    }

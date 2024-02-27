@@ -1,0 +1,120 @@
+CRITICAL - 2023-09-01 14:11:43 --> Trying to access array offset on value of type null
+in APPPATH/Controllers/ProjectController.php on line 201.
+ 1 APPPATH/Controllers/ProjectController.php(201): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'APPPATH/Controllers/ProjectController.php', 201)
+ 2 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\ProjectController->getAllData()
+ 3 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProjectController))
+ 4 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(66): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-09-01 15:22:22 --> Trying to access array offset on value of type null
+in APPPATH/Controllers/ProjectController.php on line 201.
+ 1 APPPATH/Controllers/ProjectController.php(201): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'APPPATH/Controllers/ProjectController.php', 201)
+ 2 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\ProjectController->getAllData()
+ 3 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProjectController))
+ 4 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(66): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-09-01 15:23:37 --> Trying to access array offset on value of type null
+in APPPATH/Controllers/ProjectController.php on line 201.
+ 1 APPPATH/Controllers/ProjectController.php(201): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'APPPATH/Controllers/ProjectController.php', 201)
+ 2 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\ProjectController->getAllData()
+ 3 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProjectController))
+ 4 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(66): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-09-01 15:23:51 --> Trying to access array offset on value of type null
+in APPPATH/Controllers/ProjectController.php on line 201.
+ 1 APPPATH/Controllers/ProjectController.php(201): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'APPPATH/Controllers/ProjectController.php', 201)
+ 2 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\ProjectController->getAllData()
+ 3 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProjectController))
+ 4 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(66): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-09-01 15:26:21 --> Trying to access array offset on value of type null
+in APPPATH/Controllers/ProjectController.php on line 201.
+ 1 APPPATH/Controllers/ProjectController.php(201): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'APPPATH/Controllers/ProjectController.php', 201)
+ 2 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\ProjectController->getAllData()
+ 3 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProjectController))
+ 4 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(66): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-09-01 15:26:43 --> Trying to access array offset on value of type null
+in APPPATH/Controllers/ProjectController.php on line 201.
+ 1 APPPATH/Controllers/ProjectController.php(201): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'APPPATH/Controllers/ProjectController.php', 201)
+ 2 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\ProjectController->getAllData()
+ 3 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProjectController))
+ 4 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(66): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-09-01 15:27:14 --> Trying to access array offset on value of type null
+in APPPATH/Controllers/ProjectController.php on line 201.
+ 1 APPPATH/Controllers/ProjectController.php(201): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'APPPATH/Controllers/ProjectController.php', 201)
+ 2 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\ProjectController->getAllData()
+ 3 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProjectController))
+ 4 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(66): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-09-01 18:25:12 --> Trying to access array offset on value of type null
+in APPPATH/Controllers/ProjectController.php on line 201.
+ 1 APPPATH/Controllers/ProjectController.php(201): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'APPPATH/Controllers/ProjectController.php', 201)
+ 2 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\ProjectController->getAllData()
+ 3 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProjectController))
+ 4 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(66): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-09-01 18:28:12 --> Trying to access array offset on value of type null
+in APPPATH/Controllers/ProjectController.php on line 201.
+ 1 APPPATH/Controllers/ProjectController.php(201): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'APPPATH/Controllers/ProjectController.php', 201)
+ 2 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\ProjectController->getAllData()
+ 3 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProjectController))
+ 4 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(66): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-09-01 18:28:25 --> Trying to access array offset on value of type null
+in APPPATH/Controllers/ProjectController.php on line 201.
+ 1 APPPATH/Controllers/ProjectController.php(201): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'APPPATH/Controllers/ProjectController.php', 201)
+ 2 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\ProjectController->getAllData()
+ 3 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProjectController))
+ 4 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(66): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-09-01 19:12:18 --> ContactController::send Unable to send Contact Us Email Notifications: "Cannot send mail with no \"From\" header.<br><pre>\n<\/pre>"
+ERROR - 2023-09-01 19:28:59 --> Email: sendWithSmtp throwed ErrorException: fsockopen(): Unable to connect to ssl://itblaster.net:456 (Connection timed out) in /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/Email/Email.php:1868
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'fsockopen(): Un...', '/home/itblaster...', 1868)
+#1 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/Email/Email.php(1868): fsockopen('ssl://itblaster...', 456, NULL, NULL, 120)
+#2 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/Email/Email.php(1782): CodeIgniter\Email\Email->SMTPConnect()
+#3 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/Email/Email.php(1667): CodeIgniter\Email\Email->sendWithSmtp()
+#4 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/Email/Email.php(1565): CodeIgniter\Email\Email->spoolEmail()
+#5 /home/itblaster/repositories/itblaster/codeigniter/app/Controllers/ContactController.php(62): CodeIgniter\Email\Email->send()
+#6 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/CodeIgniter.php(934): App\Controllers\ContactController->send()
+#7 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ContactController))
+#8 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 /home/itblaster/public_html/index.php(66): CodeIgniter\CodeIgniter->run()
+#10 {main}
+ERROR - 2023-09-01 19:28:59 --> Email: Unable to send email using SMTP. Your server might not be configured to send mail using this method.
+ERROR - 2023-09-01 19:28:59 --> 
+ERROR - 2023-09-01 19:28:59 --> ContactController::send Unable to send Contact Us Email Notifications: "Unable to send email using SMTP. Your server might not be configured to send mail using this method.<br><pre>Date: Fri, 1 Sep 2023 19:26:59 +0000\r\nTo: marvin.v.baylon@consultareinc.com, mb1gbts@gmail.com\r\nCc: marvin@consultareinc.com\r\nReply-To: &quot;Marvin Baylon&quot; &lt;marvin@consultareinc.com&gt;\r\nSubject: =?UTF-8?Q?Contact=20Us=20-=20Inquiry?=\r\nFrom: &quot;Marvin Baylon&quot; &lt;mb1gbts@gmail.com&gt;\r\nReturn-Path: &lt;mb1gbts@gmail.com&gt;\r\nUser-Agent: CodeIgniter\r\nX-Sender: mb1gbts@gmail.com\r\nX-Mailer: CodeIgniter\r\nX-Priority: 3 (Normal)\r\nMessage-ID: &lt;64f23b03d2e2c7.74747245@gmail.com&gt;\r\nMime-Version: 1.0\r\n\n<\/pre>"
+ERROR - 2023-09-01 19:31:49 --> Email: sendWithSmtp throwed ErrorException: fsockopen(): Unable to connect to ssl://itblaster.net:456 (Connection timed out) in /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/Email/Email.php:1868
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'fsockopen(): Un...', '/home/itblaster...', 1868)
+#1 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/Email/Email.php(1868): fsockopen('ssl://itblaster...', 456, NULL, NULL, 60)
+#2 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/Email/Email.php(1782): CodeIgniter\Email\Email->SMTPConnect()
+#3 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/Email/Email.php(1667): CodeIgniter\Email\Email->sendWithSmtp()
+#4 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/Email/Email.php(1565): CodeIgniter\Email\Email->spoolEmail()
+#5 /home/itblaster/repositories/itblaster/codeigniter/app/Controllers/ContactController.php(62): CodeIgniter\Email\Email->send()
+#6 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/CodeIgniter.php(934): App\Controllers\ContactController->send()
+#7 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ContactController))
+#8 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 /home/itblaster/public_html/index.php(66): CodeIgniter\CodeIgniter->run()
+#10 {main}
+ERROR - 2023-09-01 19:31:49 --> Email: Unable to send email using SMTP. Your server might not be configured to send mail using this method.
+ERROR - 2023-09-01 19:31:49 --> 
+ERROR - 2023-09-01 19:31:49 --> ContactController::send Unable to send Contact Us Email Notifications: "Unable to send email using SMTP. Your server might not be configured to send mail using this method.<br><pre>Date: Fri, 1 Sep 2023 19:30:49 +0000\r\nTo: marvin.v.baylon@consultareinc.com, mb1gbts@gmail.com\r\nCc: marvin@consultareinc.com\r\nReply-To: &quot;Marvin Baylon&quot; &lt;marvin@consultareinc.com&gt;\r\nSubject: =?UTF-8?Q?Contact=20Us=20-=20Inquiry?=\r\nFrom: &quot;Marvin Baylon&quot; &lt;mb1gbts@gmail.com&gt;\r\nReturn-Path: &lt;mb1gbts@gmail.com&gt;\r\nUser-Agent: CodeIgniter\r\nX-Sender: mb1gbts@gmail.com\r\nX-Mailer: CodeIgniter\r\nX-Priority: 3 (Normal)\r\nMessage-ID: &lt;64f23be951d701.60955860@gmail.com&gt;\r\nMime-Version: 1.0\r\n\n<\/pre>"
+ERROR - 2023-09-01 19:33:24 --> Email: sendWithSmtp throwed ErrorException: fsockopen(): Unable to connect to ssl://itblaster.net:456 (Connection timed out) in /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/Email/Email.php:1868
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'fsockopen(): Un...', '/home/itblaster...', 1868)
+#1 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/Email/Email.php(1868): fsockopen('ssl://itblaster...', 456, NULL, NULL, 60)
+#2 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/Email/Email.php(1782): CodeIgniter\Email\Email->SMTPConnect()
+#3 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/Email/Email.php(1667): CodeIgniter\Email\Email->sendWithSmtp()
+#4 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/Email/Email.php(1565): CodeIgniter\Email\Email->spoolEmail()
+#5 /home/itblaster/repositories/itblaster/codeigniter/app/Controllers/ContactController.php(62): CodeIgniter\Email\Email->send()
+#6 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/CodeIgniter.php(934): App\Controllers\ContactController->send()
+#7 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ContactController))
+#8 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 /home/itblaster/public_html/index.php(66): CodeIgniter\CodeIgniter->run()
+#10 {main}
+ERROR - 2023-09-01 19:33:24 --> Email: Unable to send email using SMTP. Your server might not be configured to send mail using this method.
+ERROR - 2023-09-01 19:33:24 --> 
+ERROR - 2023-09-01 19:33:24 --> ContactController::send Unable to send Contact Us Email Notifications: "Unable to send email using SMTP. Your server might not be configured to send mail using this method.<br><pre>Date: Fri, 1 Sep 2023 19:32:24 +0000\r\nTo: marvin.v.baylon@consultareinc.com, mb1gbts@gmail.com\r\nCc: marvin@consultareinc.com\r\nReply-To: &quot;Marvin Baylon&quot; &lt;marvin@consultareinc.com&gt;\r\nSubject: =?UTF-8?Q?Contact=20Us=20-=20Inquiry?=\r\nFrom: &quot;Marvin Baylon&quot; &lt;mb1gbts@gmail.com&gt;\r\nReturn-Path: &lt;mb1gbts@gmail.com&gt;\r\nUser-Agent: CodeIgniter\r\nX-Sender: mb1gbts@gmail.com\r\nX-Mailer: CodeIgniter\r\nX-Priority: 3 (Normal)\r\nMessage-ID: &lt;64f23c48c8d770.99162595@gmail.com&gt;\r\nMime-Version: 1.0\r\n\n<\/pre>"
+ERROR - 2023-09-01 19:52:59 --> ContactController::send Unable to send Contact Us Email Notifications: "Cannot send mail with no \"From\" header.<br><pre>\n<\/pre>"

@@ -1,0 +1,201 @@
+ERROR - 2023-08-18 00:24:21 --> mysqli_sql_exception: Unknown column 'tbl_project.project_code' in 'field list' in /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:295
+Stack trace:
+#0 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(295): mysqli->query('SELECT `tbl_pro...', 0)
+#1 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/Database/BaseConnection.php(691): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `tbl_pro...')
+#2 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/Database/BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `tbl_pro...')
+#3 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `tbl_pro...', Array, false)
+#4 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/Model.php(241): CodeIgniter\Database\BaseBuilder->get()
+#5 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/BaseModel.php(618): CodeIgniter\Model->doFindAll(0, 0)
+#6 /home/itblaster/repositories/itblaster/codeigniter/app/Controllers/AdminController.php(76): CodeIgniter\BaseModel->findAll()
+#7 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/CodeIgniter.php(934): App\Controllers\AdminController->allProjects()
+#8 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+#9 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 /home/itblaster/public_html/index.php(66): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2023-08-18 00:24:21 --> Unknown column 'tbl_project.project_code' in 'field list'
+in SYSTEMPATH/Database/BaseConnection.php on line 645.
+ 1 SYSTEMPATH/Database/BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `tbl_project`.`projectid`, `tbl_project`.`project_name`, `tbl_project`.`project_budget`, `tbl_project`.`project_code`, `tbl_project`.`project_image`, `tbl_project`.`description`, `tbl_project`.`project_allot_time`, `tbl_project`.`project_label`, `tbl_project`.`specialist_tag`, `tbl_project`.`due_date`, `tbl_project`.`start_date`, `tbl_project`.`start_date`, `tbl_project`.`project_status_flag`, `clientprofile`.`company`, `clientprofile`.`name`, `clientprofile`.`profile_avatar`
+FROM `tbl_project`
+JOIN `clientprofile` ON `tbl_project`.`clientid` = `clientprofile`.`id`
+WHERE `project_status_flag` = :project_status_flag:', [...], false)
+ 2 SYSTEMPATH/Model.php(241): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH/BaseModel.php(618): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH/Controllers/AdminController.php(76): CodeIgniter\BaseModel->findAll()
+ 5 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\AdminController->allProjects()
+ 6 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 7 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH/index.php(66): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-08-18 13:58:11 --> Trying to access array offset on value of type null
+in APPPATH/Controllers/ProjectController.php on line 201.
+ 1 APPPATH/Controllers/ProjectController.php(201): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'APPPATH/Controllers/ProjectController.php', 201)
+ 2 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\ProjectController->getAllData()
+ 3 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProjectController))
+ 4 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(66): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-08-18 14:01:19 --> mysqli_sql_exception: Unknown column 'tbl_project.project_code' in 'field list' in /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:295
+Stack trace:
+#0 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(295): mysqli->query('SELECT `tbl_tic...', 0)
+#1 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/Database/BaseConnection.php(691): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `tbl_tic...')
+#2 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/Database/BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `tbl_tic...')
+#3 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `tbl_tic...', Array, false)
+#4 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/Model.php(241): CodeIgniter\Database\BaseBuilder->get()
+#5 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/BaseModel.php(618): CodeIgniter\Model->doFindAll(0, 0)
+#6 /home/itblaster/repositories/itblaster/codeigniter/app/Controllers/AdminController.php(162): CodeIgniter\BaseModel->findAll()
+#7 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/CodeIgniter.php(934): App\Controllers\AdminController->itProfile('Marvin Baylon', '1')
+#8 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+#9 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 /home/itblaster/public_html/index.php(66): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2023-08-18 14:01:19 --> Unknown column 'tbl_project.project_code' in 'field list'
+in SYSTEMPATH/Database/BaseConnection.php on line 645.
+ 1 SYSTEMPATH/Database/BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `tbl_ticket`.*, `tbl_project`.`project_name`, `tbl_project`.`project_code`, `clientprofile`.`name` AS `client`
+FROM `itprofile`
+JOIN `tbl_project_admin` ON `itprofile`.`id` = `tbl_project_admin`.`devid`
+JOIN `tbl_project` ON `tbl_project_admin`.`projectid` = `tbl_project`.`projectid`
+JOIN `tbl_ticket` ON `tbl_project`.`projectid` = `tbl_ticket`.`projectid`
+JOIN `clientprofile` ON `tbl_ticket`.`clientid` = `clientprofile`.`id`
+WHERE `tbl_ticket`.`ticket_label` != :tbl_ticket.ticket_label:
+AND `tbl_ticket`.`ticket_status_flag` = :tbl_ticket.ticket_status_flag:
+AND `tbl_ticket`.`is_approved` = :tbl_ticket.is_approved:
+AND `itprofile`.`id` = :itprofile.id:', [...], false)
+ 2 SYSTEMPATH/Model.php(241): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH/BaseModel.php(618): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH/Controllers/AdminController.php(162): CodeIgniter\BaseModel->findAll()
+ 5 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\AdminController->itProfile('Marvin Baylon', '1')
+ 6 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 7 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH/index.php(66): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-08-18 14:01:35 --> mysqli_sql_exception: Unknown column 'tbl_project.project_code' in 'field list' in /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:295
+Stack trace:
+#0 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(295): mysqli->query('SELECT `tbl_tic...', 0)
+#1 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/Database/BaseConnection.php(691): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `tbl_tic...')
+#2 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/Database/BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `tbl_tic...')
+#3 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `tbl_tic...', Array, false)
+#4 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/Model.php(241): CodeIgniter\Database\BaseBuilder->get()
+#5 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/BaseModel.php(618): CodeIgniter\Model->doFindAll(0, 0)
+#6 /home/itblaster/repositories/itblaster/codeigniter/app/Controllers/AdminController.php(162): CodeIgniter\BaseModel->findAll()
+#7 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/CodeIgniter.php(934): App\Controllers\AdminController->itProfile('Aiza Leynes', '27')
+#8 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+#9 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 /home/itblaster/public_html/index.php(66): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2023-08-18 14:01:35 --> Unknown column 'tbl_project.project_code' in 'field list'
+in SYSTEMPATH/Database/BaseConnection.php on line 645.
+ 1 SYSTEMPATH/Database/BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `tbl_ticket`.*, `tbl_project`.`project_name`, `tbl_project`.`project_code`, `clientprofile`.`name` AS `client`
+FROM `itprofile`
+JOIN `tbl_project_admin` ON `itprofile`.`id` = `tbl_project_admin`.`devid`
+JOIN `tbl_project` ON `tbl_project_admin`.`projectid` = `tbl_project`.`projectid`
+JOIN `tbl_ticket` ON `tbl_project`.`projectid` = `tbl_ticket`.`projectid`
+JOIN `clientprofile` ON `tbl_ticket`.`clientid` = `clientprofile`.`id`
+WHERE `tbl_ticket`.`ticket_label` != :tbl_ticket.ticket_label:
+AND `tbl_ticket`.`ticket_status_flag` = :tbl_ticket.ticket_status_flag:
+AND `tbl_ticket`.`is_approved` = :tbl_ticket.is_approved:
+AND `itprofile`.`id` = :itprofile.id:', [...], false)
+ 2 SYSTEMPATH/Model.php(241): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH/BaseModel.php(618): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH/Controllers/AdminController.php(162): CodeIgniter\BaseModel->findAll()
+ 5 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\AdminController->itProfile('Aiza Leynes', '27')
+ 6 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 7 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH/index.php(66): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-08-18 14:14:19 --> mysqli_sql_exception: Unknown column 'tbl_project.project_image' in 'field list' in /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:295
+Stack trace:
+#0 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(295): mysqli->query('SELECT `tbl_pro...', 0)
+#1 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/Database/BaseConnection.php(691): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `tbl_pro...')
+#2 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/Database/BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `tbl_pro...')
+#3 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `tbl_pro...', Array, false)
+#4 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/Model.php(241): CodeIgniter\Database\BaseBuilder->get()
+#5 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/BaseModel.php(618): CodeIgniter\Model->doFindAll(0, 0)
+#6 /home/itblaster/repositories/itblaster/codeigniter/app/Controllers/AdminController.php(76): CodeIgniter\BaseModel->findAll()
+#7 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/CodeIgniter.php(934): App\Controllers\AdminController->allProjects()
+#8 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+#9 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 /home/itblaster/public_html/index.php(66): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2023-08-18 14:14:19 --> Unknown column 'tbl_project.project_image' in 'field list'
+in SYSTEMPATH/Database/BaseConnection.php on line 645.
+ 1 SYSTEMPATH/Database/BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `tbl_project`.`projectid`, `tbl_project`.`project_name`, `tbl_project`.`project_budget`, `tbl_project`.`project_code`, `tbl_project`.`project_image`, `tbl_project`.`description`, `tbl_project`.`project_allot_time`, `tbl_project`.`project_label`, `tbl_project`.`specialist_tag`, `tbl_project`.`due_date`, `tbl_project`.`start_date`, `tbl_project`.`start_date`, `tbl_project`.`project_status_flag`, `clientprofile`.`company`, `clientprofile`.`name`, `clientprofile`.`profile_avatar`
+FROM `tbl_project`
+JOIN `clientprofile` ON `tbl_project`.`clientid` = `clientprofile`.`id`
+WHERE `project_status_flag` = :project_status_flag:', [...], false)
+ 2 SYSTEMPATH/Model.php(241): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH/BaseModel.php(618): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH/Controllers/AdminController.php(76): CodeIgniter\BaseModel->findAll()
+ 5 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\AdminController->allProjects()
+ 6 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 7 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH/index.php(66): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-08-18 15:22:02 --> mysqli_sql_exception: Unknown column 'tbl_products_services.prodser_name' in 'field list' in /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:295
+Stack trace:
+#0 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(295): mysqli->query('SELECT `tbl_pro...', 0)
+#1 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/Database/BaseConnection.php(691): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `tbl_pro...')
+#2 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/Database/BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `tbl_pro...')
+#3 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `tbl_pro...', Array, false)
+#4 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/Model.php(241): CodeIgniter\Database\BaseBuilder->get()
+#5 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/BaseModel.php(618): CodeIgniter\Model->doFindAll(0, 0)
+#6 /home/itblaster/repositories/itblaster/codeigniter/app/Controllers/AdminController.php(147): CodeIgniter\BaseModel->findAll()
+#7 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/CodeIgniter.php(934): App\Controllers\AdminController->clientIndex()
+#8 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+#9 /home/itblaster/repositories/itblaster/codeigniter/vendor/codeigniter4/framework/system/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 /home/itblaster/public_html/index.php(66): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2023-08-18 15:22:02 --> Unknown column 'tbl_products_services.prodser_name' in 'field list'
+in SYSTEMPATH/Database/BaseConnection.php on line 645.
+ 1 SYSTEMPATH/Database/BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `tbl_products_services`.`prodser_name`
+FROM `tbl_client_products_services`
+JOIN `clientprofile` ON `tbl_products_services`.`prodser_clientid` = `clientprofile`.`id`', [], false)
+ 2 SYSTEMPATH/Model.php(241): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH/BaseModel.php(618): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH/Controllers/AdminController.php(147): CodeIgniter\BaseModel->findAll()
+ 5 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\AdminController->clientIndex()
+ 6 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 7 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH/index.php(66): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-08-18 15:55:22 --> Undefined array key "prodser_clientid"
+in APPPATH/Views/admin/people/client_list.php on line 98.
+ 1 APPPATH/Views/admin/people/client_list.php(98): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "prodser_clientid"', 'APPPATH/Views/admin/people/client_list.php', 98)
+ 2 SYSTEMPATH/View/View.php(213): include('APPPATH/Views/admin/people/client_list.php')
+ 3 SYSTEMPATH/View/View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH/Common.php(1184): CodeIgniter\View\View->render('admin/people/client_list', [], true)
+ 5 APPPATH/Controllers/AdminController.php(154): view('admin/people/client_list', [...])
+ 6 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\AdminController->clientIndex()
+ 7 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 8 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH/index.php(66): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-08-18 16:05:31 --> syntax error, unexpected token "endforeach", expecting end of file
+in APPPATH/Views/admin/people/client_list.php on line 115.
+ 1 SYSTEMPATH/View/View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 2 SYSTEMPATH/Common.php(1184): CodeIgniter\View\View->render('admin/people/client_list', [], true)
+ 3 APPPATH/Controllers/AdminController.php(154): view('admin/people/client_list', [...])
+ 4 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\AdminController->clientIndex()
+ 5 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 6 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH/index.php(66): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-08-18 18:03:07 --> Trying to access array offset on value of type null
+in APPPATH/Controllers/ProjectController.php on line 201.
+ 1 APPPATH/Controllers/ProjectController.php(201): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'APPPATH/Controllers/ProjectController.php', 201)
+ 2 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\ProjectController->getAllData()
+ 3 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProjectController))
+ 4 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(66): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-08-18 18:04:02 --> Trying to access array offset on value of type null
+in APPPATH/Controllers/ProjectController.php on line 201.
+ 1 APPPATH/Controllers/ProjectController.php(201): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'APPPATH/Controllers/ProjectController.php', 201)
+ 2 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\ProjectController->getAllData()
+ 3 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProjectController))
+ 4 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(66): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-08-18 18:04:29 --> Trying to access array offset on value of type null
+in APPPATH/Controllers/ProjectController.php on line 201.
+ 1 APPPATH/Controllers/ProjectController.php(201): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'APPPATH/Controllers/ProjectController.php', 201)
+ 2 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\ProjectController->getAllData()
+ 3 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProjectController))
+ 4 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(66): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-08-18 18:09:57 --> Trying to access array offset on value of type null
+in APPPATH/Controllers/ProjectController.php on line 201.
+ 1 APPPATH/Controllers/ProjectController.php(201): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'APPPATH/Controllers/ProjectController.php', 201)
+ 2 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\ProjectController->getAllData()
+ 3 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProjectController))
+ 4 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(66): CodeIgniter\CodeIgniter->run()

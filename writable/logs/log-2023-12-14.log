@@ -1,0 +1,49 @@
+ERROR - 2023-12-14 23:27:13 --> Error connecting to the database: mysqli_sql_exception: Access denied for user 'itblaster_root'@'localhost' (using password: YES) in D:\xampp\htdocs\itblasters\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:174
+Stack trace:
+#0 D:\xampp\htdocs\itblasters\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(174): mysqli->real_connect('localhost', 'itblaster_root', '7u$7fLSnHf#@', 'itblaster_db', 3306, '', 0)
+#1 D:\xampp\htdocs\itblasters\vendor\codeigniter4\framework\system\Database\BaseConnection.php(391): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 D:\xampp\htdocs\itblasters\vendor\codeigniter4\framework\system\Database\BaseConnection.php(573): CodeIgniter\Database\BaseConnection->initialize()
+#3 D:\xampp\htdocs\itblasters\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `owned_s...', Array, false)
+#4 D:\xampp\htdocs\itblasters\vendor\codeigniter4\framework\system\Model.php(241): CodeIgniter\Database\BaseBuilder->get()
+#5 D:\xampp\htdocs\itblasters\vendor\codeigniter4\framework\system\BaseModel.php(618): CodeIgniter\Model->doFindAll(12, 0)
+#6 D:\xampp\htdocs\itblasters\app\Controllers\Home.php(24): CodeIgniter\BaseModel->findAll(12)
+#7 D:\xampp\htdocs\itblasters\vendor\codeigniter4\framework\system\CodeIgniter.php(934): App\Controllers\Home->index()
+#8 D:\xampp\htdocs\itblasters\vendor\codeigniter4\framework\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#9 D:\xampp\htdocs\itblasters\vendor\codeigniter4\framework\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 D:\xampp\htdocs\itblasters\public\index.php(66): CodeIgniter\CodeIgniter->run()
+#11 D:\xampp\htdocs\itblasters\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(47): require_once('D:\\xampp\\htdocs...')
+#12 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Access denied for user '****'@'localhost' (using password: YES) in D:\xampp\htdocs\itblasters\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:218
+Stack trace:
+#0 D:\xampp\htdocs\itblasters\vendor\codeigniter4\framework\system\Database\BaseConnection.php(391): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 D:\xampp\htdocs\itblasters\vendor\codeigniter4\framework\system\Database\BaseConnection.php(573): CodeIgniter\Database\BaseConnection->initialize()
+#2 D:\xampp\htdocs\itblasters\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `owned_s...', Array, false)
+#3 D:\xampp\htdocs\itblasters\vendor\codeigniter4\framework\system\Model.php(241): CodeIgniter\Database\BaseBuilder->get()
+#4 D:\xampp\htdocs\itblasters\vendor\codeigniter4\framework\system\BaseModel.php(618): CodeIgniter\Model->doFindAll(12, 0)
+#5 D:\xampp\htdocs\itblasters\app\Controllers\Home.php(24): CodeIgniter\BaseModel->findAll(12)
+#6 D:\xampp\htdocs\itblasters\vendor\codeigniter4\framework\system\CodeIgniter.php(934): App\Controllers\Home->index()
+#7 D:\xampp\htdocs\itblasters\vendor\codeigniter4\framework\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#8 D:\xampp\htdocs\itblasters\vendor\codeigniter4\framework\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 D:\xampp\htdocs\itblasters\public\index.php(66): CodeIgniter\CodeIgniter->run()
+#10 D:\xampp\htdocs\itblasters\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(47): require_once('D:\\xampp\\htdocs...')
+#11 {main}
+CRITICAL - 2023-12-14 23:27:13 --> Unable to connect to the database.
+Main connection [MySQLi]: Access denied for user '****'@'localhost' (using password: YES)
+in SYSTEMPATH\Database\BaseConnection.php on line 427.
+ 1 SYSTEMPATH\Database\BaseConnection.php(573): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `owned_skill_setid`, `tbl_skillset_list`.*, COUNT(*) as count
+FROM `tbl_skill_owned`
+JOIN `tbl_skillset_list` ON `tbl_skill_owned`.`owned_skill_setid` = `tbl_skillset_list`.`skill_setid`
+WHERE `tbl_skill_owned`.`skill_status_flag` = :tbl_skill_owned.skill_status_flag:
+GROUP BY `owned_skill_setid`
+ORDER BY `tbl_skillset_list`.`skill_name` ASC
+ LIMIT 12', [...], false)
+ 3 SYSTEMPATH\Model.php(241): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH\BaseModel.php(618): CodeIgniter\Model->doFindAll(12, 0)
+ 5 APPPATH\Controllers\Home.php(24): CodeIgniter\BaseModel->findAll(12)
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->index()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(66): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')

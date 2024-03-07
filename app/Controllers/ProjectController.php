@@ -795,50 +795,34 @@ class ProjectController extends BaseController
             $user = $this->itModel->where('userId', $this->sessionid)->first();
             $client = $this->clientModel->where('userId', $this->sessionid)->first();
             $projectid = $this->request->getVar('projectid');
-            if(!empty($user)) {
+            $data = [
+                'clientid' => $this->request->getVar('clientid'),
+                'projectid' => $this->request->getVar('projectid'),
+                'ticket_title' => $this->request->getVar('title'),
+                'ticket_start_date' => $this->request->getVar('duedate'),
+                'ticket_alloted_time' => $this->request->getVar('alloted_time'),
+                'ticket_due_date' => $this->request->getVar('duedate'),
+                'ticket_task_description' => $this->request->getVar('description'),
+                'ticket_priority_label' => $this->request->getVar('priority'),
+                'parentid' => $this->request->getVar('parentid'),
+                'childid' => $this->request->getVar('childid')
+            ];
+
+            if (!empty($user)) {
                 $usertype = $user['employment_status'];
-                $is_approved = ($usertype == 2) ? 'Yes' : 'No';
-                $label = ($usertype == 2) ? $this->request->getVar('status') : 'Not Started';
-                
-                $data = array(
-                    'clientid' => $this->request->getVar('clientid'),
-                    'projectid' => $this->request->getVar('projectid'),
-                    'ticket_title' => $this->request->getVar('title'),
+                $data += [
                     'assign_to' => $commaSeparatedId,
-                    'ticket_start_date' => $this->request->getVar('duedate'),
-                    'ticket_alloted_time' => $this->request->getVar('alloted_time'),
-                    'ticket_due_date' => $this->request->getVar('duedate'),
-                    'ticket_task_description' => $this->request->getVar('description'),
-                    'ticket_priority_label' => $this->request->getVar('priority'),
-                    'parentid' => $this->request->getVar('parentid'),
-                    'childid' => $this->request->getVar('childid'),
-                    'ticket_label' => $label,
-                    'is_approved' => $is_approved
-                );
-            } elseif(!empty($client)) {
-                $data = array(
-                    'clientid' => $this->request->getVar('clientid'),
-                    'projectid' => $this->request->getVar('projectid'),
-                    'ticket_title' => $this->request->getVar('title'),
-                    'ticket_start_date' => $this->request->getVar('duedate'),
-                    'ticket_alloted_time' => $this->request->getVar('alloted_time'),
-                    'ticket_due_date' => $this->request->getVar('duedate'),
-                    'ticket_task_description' => $this->request->getVar('description'),
-                    'ticket_priority_label' => $this->request->getVar('priority'),
-                    'parentid' => $this->request->getVar('parentid'),
-                    'childid' => $this->request->getVar('childid'),
-                    'ticket_label' =>  $this->request->getVar('status'),
+                    'ticket_label' => ($usertype == 2) ? $this->request->getVar('status') : 'Not Started',
+                    'is_approved' => ($usertype == 2) ? 'Yes' : 'No'
+                ];
+            } elseif (!empty($client)) {
+                $data += [
+                    'ticket_label' => $this->request->getVar('status'),
                     'is_approved' => 'Yes'
-                );
+                ];
             }
 
-            // echo '<pre>';print_r($data);
-            
             if($this->ticketModel->save($data)){
-                // $updateData = array('last_update' => date('Y-m-d H:i:s'));
-                // Update the project with the correct projectid
-                // $this->projectModel->where('projectid', $projectid)->update($updateData);
-                
                 $log = array(
                     'userid' => $this->sessionid,
                     'projectid' => $this->request->getVar('projectid'),
@@ -850,6 +834,97 @@ class ProjectController extends BaseController
             } 
         } catch (\Exception $e) {
             exit($e->getMessage());
+        }
+    }    
+
+    public function uploadTickets() {
+        $input = $this->validate([
+            'file' => 'uploaded[file]|max_size[file,2048]|ext_in[file,csv],'
+        ]);
+        $clientid = $this->request->getVar('clientid');
+        $projectid = $this->request->getVar('projectid');
+        $selectedDevs = $this->request->getVar('assignto');
+        $parentid = $this->request->getVar('parentid');
+        $childid = $this->request->getVar('childid');
+        $commaSeparatedId = implode(',', $selectedDevs);
+
+        $user = $this->itModel->where('userId', $this->sessionid)->first();
+        $client = $this->clientModel->where('userId', $this->sessionid)->first();
+        $assign = null;
+        $is_approved = null;
+        if (!empty($user)) {
+            $usertype = $user['employment_status'];
+            if($user['employment_status'] == 2) {
+                $assign = $commaSeparatedId;
+                $is_approved = 'Yes';
+            } else {
+                $assign = 'Not Started';
+                $is_approved = 'No';
+            }
+        } elseif (!empty($client)) {
+            $is_approved = 'Yes';
+        }
+        
+        if (!$input) {
+            return $this->response->setJSON(['message' => 'Validation failed', 'errors' => $this->validator->getErrors()], 422);
+        }
+    
+        if ($file = $this->request->getFile('file')) {
+            if ($file->isValid() && !$file->hasMoved()) {
+                $newName = $file->getRandomName();
+                $file->move('../public/csvfile', $newName);
+                $file    = fopen("../public/csvfile/" . $newName, "r");
+                $numberOfFields = 4;
+                $csvArr  = array();
+    
+                fgetcsv($file);
+    
+                while (($filedata = fgetcsv($file, 1000, ",")) !== FALSE) {
+                    $num = count($filedata);
+                    if ($num == $numberOfFields) {
+                        $first_name = trim($filedata[0]);
+                        $last_name = trim($filedata[1]);
+                
+                        if (!empty($first_name) && !empty($last_name)) {
+                            // $passkey = $this->generateUniquePasskey();
+                            $csvArr[] = [
+                                'parentid'                  =>      $parentid,
+                                'childid'                   =>      $childid,
+                                'clientid'                  =>      $clientid,
+                                'projectid'                 =>      $projectid,
+                                'assign_to'                 =>      $assign,
+                                'ticket_label'              =>      'Not Started',
+                                'is_approved'               =>      $is_approved,
+                                'ticket_title'              =>      $filedata[0],
+                                'ticket_start_date'         =>      $filedata[1],
+                                'ticket_due_date'           =>      $filedata[2],
+                                'ticket_task_description'   =>      $filedata[3]
+                            ];
+                        }
+                    }
+                }
+                fclose($file);
+
+                if (empty($csvArr)) {
+                    return $this->response->setJSON(['message' => 'No valid data found in the CSV file.', 'alert-class' => 'alert-danger'], 400);
+                }
+    
+                $count = 0;
+                foreach ($csvArr as $csvData) {
+                    if ($this->ticketModel->insert($csvData)) {
+                        $count++;
+                    } else {
+                        log_message('error', 'Failed to insert data into the database: ' . print_r($csvData, true));
+                    }
+                }
+                return $this->response->setJSON([
+                    'message' => $count . ' Ticket(s) uploaded Succesfully.'
+                ], 200);
+            } else {
+                return $this->response->setJSON(['message' => 'CSV file could not be imported.', 'alert-class' => 'alert-danger'], 400);
+            }
+        } else {
+            return $this->response->setJSON(['message' => 'No file uploaded.', 'alert-class' => 'alert-danger'], 400);
         }
     }
 
@@ -1149,8 +1224,9 @@ class ProjectController extends BaseController
                $result .='
                <tr class="text-center">
                <td>
-                 <a data-toggle="modal" data-target="#add-ticket-modal" class="addSubTask" id="'.$data['ticketid'].'"><i data-toggle="tooltip" title="Add Sub-ticket" class="bi bi-plus-square-fill h5 text-info"></i></a>
-                 <a data-toggle="canvas" data-target="#bs-canvas-right" aria-expanded="false" onclick="showOffcanvas()" aria-controls="bs-canvas-right" class="offCanvas" id="'.$data['ticketid'].'"><i data-toggle="tooltip" title="View Ticket History/Ticket Sub-task" class="bi bi-arrow-left-square-fill h5 text-info"></i></a>
+                 <a data-toggle="modal" class="uploadTicket" data-parent="'.$data['ticketid'].'" data-child="'.$data['parentid'].'" data-target="#upload-ticket-modal"><i class="bi bi-upload text-info" data-toggle="tooltip" title="uploadTicket"></i> &nbsp;</a>
+                 <a data-toggle="modal" data-target="#add-ticket-modal" class="addSubTask" data-parent="'.$data['ticketid'].'" data-child="'.$data['parentid'].'"><i data-toggle="tooltip" title="Add Sub-ticket" class="bi bi-plus-square-fill h5 text-info"></i></a>
+                 <a href="#" data-toggle="canvas" data-target="#bs-canvas-right" aria-expanded="false" aria-controls="bs-canvas-right" class="offCanvas" id="'.$data['ticketid'].'"><i data-toggle="tooltip" title="View Ticket History/Ticket Sub-task" class="bi bi-arrow-left-square-fill h5 text-info"></i></a>
                </td>
                <td>
                  '.$priority.'<a style="cursor:pointer" class="view-ticket-details" id="'.$data['ticketid'].'" data-toggle="modal" data-target="#view-ticket-modal"><span data-toggle="tooltip" title="View ticket"> TICKET #'.$data['ticketid'].'</span></a>
@@ -1237,15 +1313,6 @@ class ProjectController extends BaseController
         $projectid = $this->request->getVar('projectid');
         $all_document = $this->filesModel->where('file_status_flag', 0)->findAll();
         $all_comment = $this->commentModel->where('comment_status_flag', 0)->findAll();
-        // $ticket_owner = $this->ticketModel
-        //         ->select('
-        //             tbl_ticketowners.ticketid,
-        //             tbl_ticketowners.personelid,
-        //             itprofile.name,
-        //             itprofile.profile_avatar')
-        //         ->join('tbl_ticketowners', 'tbl_ticket.ticketid = tbl_ticketowners.ticketid')
-        //         ->join('itprofile', 'tbl_ticketowners.personelid = itprofile.userId')
-        //         ->findAll();
         $ticket = $this->ticketModel
                 ->where([
                     'ticket_label' => $status, 
@@ -1377,7 +1444,7 @@ class ProjectController extends BaseController
             $result .= '<table class="table table-hover table-bordered">
             <thead class="bg-light">
               <tr>
-                <th width="3%" class="'.$is_permitted.'"><input id="select-all" type="checkbox"></th>
+                <th width="3%" class="'.$is_permitted.'"><input class="select-all" type="checkbox"></th>
                 <th class="text-center">TICKET #</th>
                 <th class="text-center" width="20%">DESCRIPTION</th>
                 <th class="text-center">DESIRED DUEDATE</th>
@@ -1532,6 +1599,7 @@ class ProjectController extends BaseController
                 $result .='
                 <tr class="text-center">
                     <td>
+                        <a data-toggle="modal" class="uploadTicket" data-parent="'.$data['ticketid'].'" data-child="'.$data['parentid'].'" data-target="#upload-ticket-modal"><i class="bi bi-upload text-info" data-toggle="tooltip" title="uploadTicket"></i> &nbsp;</a>
                         <a data-toggle="modal" data-target="#add-ticket-modal" class="addSubTask" id="'. $data['ticketid'] .'"><i data-toggle="tooltip" title="Add Sub-ticket" class="bi bi-plus-square-fill h5 text-info"></i></a>
                         <a data-toggle="canvas" data-target="#bs-canvas-right" aria-expanded="false" onclick="showOffcanvas()" aria-controls="bs-canvas-right" class="offCanvas" id="'. $data['ticketid'] .'"><i data-toggle="tooltip" title="View Ticket History/Ticket Sub-task" class="bi bi-arrow-left-square-fill h5 text-info"></i></a>
                     </td>

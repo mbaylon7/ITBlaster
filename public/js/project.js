@@ -5,7 +5,168 @@ $(document).ready(function(){
     function select2() {
         $('.select2').select2({})
     }
-    
+
+    $(document).on('click', '.select-all', function(event) {   
+        if(this.checked) {
+            $('.checkbox').each(function() {
+                this.checked = true;
+                $('#update_button_hide').removeClass('d-none');
+            });
+        } else {
+            $('.checkbox').each(function() {
+                this.checked = false;     
+                $('#update_button_hide').addClass('d-none');
+            });
+        }
+    });
+
+    $(document).on('click', 'input.checkbox', function() {
+        var anyCheckboxChecked = $('input.checkbox:checked').length > 0;
+        if (anyCheckboxChecked) {
+            $('#update_button_hide').removeClass('d-none');
+        } else {
+            $('#update_button_hide').addClass('d-none');
+        }
+    });
+
+    $(document).on('click', '.offCanvas', function(){
+        var bsOverlay = $('.bs-canvas-overlay');
+        let ticketid = $(this).attr('id')
+        var ctrl = $(this), 
+        elm = ctrl.is('a') ? ctrl.data('target') : ctrl.attr('href');
+        $(elm).addClass('mr-0');
+        $(elm + ' .bs-canvas-close').attr('aria-expanded', "true");
+        $('[data-target="' + elm + '"], a[href="' + elm + '"]').attr('aria-expanded', "true");
+        if(bsOverlay.length)
+        bsOverlay.addClass('show').addClass('bg-dark');
+        $('#ticketTitle').html(ticketid);
+        $('#universalTicketId').val(ticketid);
+        $('#getSubTickets').html('<table class="table table-bordered">\
+        <thead>\
+        <tr>\
+            <th></th>\
+            <th>Ticket #</th>\
+            <th>Description</th>\
+            <th>Duedate</th>\
+            <th>Status</th>\
+            <th>Created</th>\
+        </tr>\
+        </thead>\
+        <tbody>\
+        <tr>\
+            <td class="text-center" colspan="6"><i class="bi bi-exclamation-circle text-warning"></i> &nbsp; No data</td>\
+        </tr>\
+        </table>');
+        $('#ticketHistory').html('<table class="table table-bordered">\
+          <thead>\
+            <tr>\
+            <th></th>\
+            <th>Personel</th>\
+            <th>Action</th>\
+            <th>Timestamp</th>\
+            </tr>\
+          </thead>\
+          <tbody>\
+            <tr>\
+              <td class="text-center" colspan="4"><i class="bi bi-exclamation-circle text-warning"></i> &nbsp; No data</td>\
+            </tr>\
+        </table>');
+          $.ajax({
+              url: '/ticket/get-sub-tickets/'+ticketid,
+              method: 'GET',
+              data: {id:ticketid},
+              success: function(res) {
+                  $('#getSubTickets').html(res.output);
+                  $('#ticketHistory').html(res.activity);
+              }
+          })
+          return false;
+    });
+
+    $('.bs-canvas-close, .bs-canvas-overlay').on('click', function(){
+    var bsOverlay = $('.bs-canvas-overlay');
+        var elm;
+        if($(this).hasClass('bs-canvas-close')) {
+        elm = $(this).closest('.bs-canvas');
+        $('[data-target="' + elm + '"], a[href="' + elm + '"]').attr('aria-expanded', "false");
+        } else {
+        elm = $('.bs-canvas')
+        $('[data-toggle="canvas"]').attr('aria-expanded', "false");	
+        }
+        elm.removeClass('mr-0');
+        $('.bs-canvas-close', elm).attr('aria-expanded', "false");
+        if(bsOverlay.length)
+        bsOverlay.removeClass('show').removeClass('bg-dark');
+        return false;
+    });
+
+    function initializeDataTable(status, tabId, res) {
+        $(`#tabResultDetail${status}`).html(res.result);
+        var dataTable = $(`#${tabId} table`).DataTable({
+            responsive: true,
+            lengthChange: true,
+            autoWidth: false,
+            language: {
+                aria: {
+                    sortAscending: ": activate to sort column ascending",
+                    sortDescending: ": activate to sort column descending"
+                },
+                emptyTable: "No data available in table",
+                info: "Showing _START_ to _END_ of _TOTAL_ entries",
+                infoEmpty: "No entries found",
+                infoFiltered: "(filtered1 from _MAX_ total entries)",
+                lengthMenu: "_MENU_ entries",
+                search: "Search:",
+                zeroRecords: "No matching records found"
+            },
+            buttons: [
+                { extend: 'print', className: 'btn default' },
+                { extend: 'pdf', className: 'btn red' },
+                { extend: 'csv', className: 'btn green' }
+            ],
+            order: [
+                [1, 'desc']
+            ],
+            lengthMenu: [
+                [5, 10, 15, 20, -1],
+                [5, 10, 15, 20, "All"]
+            ],
+            pageLength: 10,
+            dom: "<'row'<'col-md-12 d-flex justify-content-end'B>><'row'<'col-md-6 col-sm-12'l><'col-md-6 col-sm-12'f>r><'table-scrollable't><'row'<'col-md-5 col-sm-12'i><'col-md-7 col-sm-12'p>>",
+        });
+        dataTable.appendTo(`#${tabId}`);
+        showOffcanvas();
+    }
+
+    $(document).on('click', '.tabStatus', function(){
+        var status = $(this).attr('data-status');
+        let projectid = $('#universalProjectid').val();
+
+        $.ajax({
+          url: '/project/ticket-tab-details='+status,
+          method: 'GET',
+          data: {status: status, projectid: projectid},
+          success: function(res) {
+            if (status == 'Not Started') {
+                initializeDataTable('NS', 'tabResultDetailNS', res);
+            } else if (status == 'In Progress') {
+                initializeDataTable('IP', 'tabResultDetailIP', res);
+            } else if (status == 'On Hold') {
+                initializeDataTable('OH', 'tabResultDetailOH', res);  
+            } else if (status == 'Completed') {
+                initializeDataTable('CMP', 'tabResultDetailCMP', res);
+            } else if (status == 'Cancelled') {
+                initializeDataTable('CND', 'tabResultDetailCND', res);
+            } else if (status == 'Archived') {
+                initializeDataTable('ARC', 'tabResultDetailARC', res);
+            } else if (status == 'For Approval') {
+                initializeDataTable('FAL', 'tabResultDetailFAL', res);
+            }
+           toolTip();
+          }
+        });
+      });
+
     // Generate Project Details
     function generateProjectContent(projectId) {
         $.get({
@@ -27,7 +188,7 @@ $(document).ready(function(){
                         if (item.count > 0) {
                             html += `
                                 <li class="nav-item">
-                                    <a class="nav-link tabStatus" id="${item.status}-tab" onclick="showProjectTickets()" data-status="${item.status}" data-toggle="pill" href="#${item.route}" role="tab" aria-controls="${item.status}" aria-selected="false">${item.label} &nbsp; <span class="badge ${item.badgeColor}">${item.count}</span></a>
+                                    <a class="nav-link tabStatus" id="${item.status}-tab" class="showProjectTickets" data-status="${item.status}" data-toggle="pill" href="#${item.route}" role="tab" aria-controls="${item.status}" aria-selected="false">${item.label} &nbsp; <span class="badge ${item.badgeColor}">${item.count}</span></a>
                                 </li>`;
                         }
                     });
@@ -102,6 +263,7 @@ $(document).ready(function(){
                     actionBtn +=`<div class="add-project d-flex justify-content-end d-print-none">
                     <div class="btn-group" role="group" aria-label="Basic example">
                     <a style="cursor:pointer" data-toggle="modal" data-target="#add-ticket-modal" class="btn btn-info btn-sm ${is_client}"> Add Ticket</a>
+                    <a style="cursor:pointer" data-toggle="modal" data-target="#upload-ticket-modal" class="btn btn-light border btn-sm ${is_client}"> <i class="bi bi-upload"></i></a>
                     <a type="button" class="btn ${is_permitted} btn-light border" data-toggle="modal" data-target="#assign-personel-modal"><span data-toggle="tooltip" title="Assign Project Manager"><i class="bi bi-pin-angle"></i></span></a>
                     <a type="button" class="btn ${is_permitted} btn-light border" data-toggle="modal" data-target="#assign-developers-modal"><span data-toggle="tooltip" title="Assign Developers"><i class="bi bi-code-slash"></i></span></a>
                     <a type="button" class="btn ${is_permitted} btn-light border" data-toggle="modal" data-target="#view-applicants-modal"><span data-toggle="tooltip" title="${count_applicants} Active Applicant(s) on this Project"><i class="bi bi-person-workspace"></i></span> <span class="text-warning">${count_applicants}</span></a>
@@ -852,6 +1014,7 @@ $(document).ready(function(){
             $addTicketBtn.prop('disabled', false);
             $('#addTicketForm')[0].reset();
             $('#add-ticket-modal').modal('hide');
+            bsOverlay.removeClass('show, bg-dark') 
         })
         .fail(function(error) {
             console.error('Error:', error);
@@ -864,30 +1027,18 @@ $(document).ready(function(){
                 confirmButtonColor: '#007bff'
             });
             $addTicketBtn.prop('disabled', false);
+            bsOverlay.removeClass('show, bg-dark') 
         });
-        // setTimeout(function() {
-        //   if($(this).hasClass('bs-canvas-close')) {
-        //     elm = $(this).closest('.bs-canvas');
-        //     $('[data-target="' + elm + '"], a[href="' + elm + '"]').attr('aria-expanded', "false");
-        //   } else {
-        //     elm = $('.bs-canvas')
-        //     $('[data-toggle="canvas"]').attr('aria-expanded', "false");	
-        //   }
-
-        //   elm.removeClass('mr-0');
-        //   $('.bs-canvas-close', elm).attr('aria-expanded', "false");
-        //   if(bsOverlay.length)
-        //     bsOverlay.removeClass('show').removeClass('bg-dark');
-        //   return false;
-        // }, 1000);
+        bsOverlay.addClass('show, bg-dark') 
     });
 
      // update ticket request
      $('#updateTicketForm').on('submit', function(e) {
         e.preventDefault();
+        var bsOverlay = $('.bs-canvas-overlay');
         var ticketId = $('#ticketDetailsId').val();
         $('tr').has('td').find('.view-ticket-details').filter(function() {
-        return $(this).attr('id') === ticketId;
+            return $(this).attr('id') === ticketId;
         }).closest('tr').remove();
         $('#updateTicketDetailsBtn').prop('disabled', true).text('Processing ...');
         $.post({
@@ -902,11 +1053,86 @@ $(document).ready(function(){
                     timer: 1500,
                     padding: '4em'
                 });
-            // ProjectContent();
-            $('#updateTicketDetailsBtn').prop('disabled', false).text('Update');
-            $('#updateTicketForm')[0].reset();
-            $('#view-ticket-modal').modal('hide');
+                ProjectContent();
+                $('#updateTicketDetailsBtn').prop('disabled', false).text('Update');
+                $('#updateTicketForm')[0].reset();
+                $('#view-ticket-modal').modal('hide');
+                $('#addCommentForm')[0].reset();
+                bsOverlay.removeClass('show, bg-dark') 
             }
         })
     });
+
+    $(document).on('change', '.checkbox_action', function() {
+        var checkedCheckboxes = $('.checkbox_action:checked');
+        var button = $('#actionBtn');
+        button.toggleClass('d-none', checkedCheckboxes.length === 0);
+    });
+
+    $(document).on('click', '.statusValue', function(e) {
+      var bsOverlay = $('.bs-canvas-overlay');
+      var selectedIds = [];
+      $('.checkbox_action:checked').each(function () {
+          selectedIds.push($(this).val());
+      });
+      var status = $(this).data('value');
+      
+
+      console.log(selectedIds);
+      if (selectedIds.length > 0) {
+        $.ajax({
+                url: '/ticket/update-multiple-ticket-status',
+                type: 'GET',
+                data: { 
+                    status: status,
+                    selectedIds: selectedIds 
+                },
+                success: function (response) {
+                    Swal.fire({
+                        title: 'Cheers!',
+                        text: response.count +' Ticket(s) Updated Successfully',
+                        icon: 'success',
+                        showConfirmButton: true,
+                        timer: 2500,
+                        padding: '4em'
+                    });
+                    ProjectContent();
+                    bsOverlay.removeClass('show, bg-dark')
+                }
+            });
+      } else {
+          alert('Please select at least one record.');
+      }
+    });
+
+    $("#uploadTicketForm").on('submit', function(e) {
+        e.preventDefault()
+        var bsOverlay = $('.bs-canvas-overlay');
+        var formData = new FormData(this);
+        $('#uploadTicketBtn').attr('disabled', true).text('Processing...')
+
+        $.ajax({
+            url: '/ticket/upload-tickets',
+            type: 'POST',
+            cache: false,
+            contentType: false,
+            processData: false,
+            data: formData,
+            success: function(response) {
+                Swal.fire({
+                    title: 'Cheers!',
+                    text: response.message,
+                    icon: 'success',
+                    showConfirmButton: true,
+                    timer: 2500,
+                    padding: '4em'
+                });
+                $("#uploadTicketForm")[0].reset();
+                $('#upload-ticket-modal').modal('hide');
+                $('#uploadTicketBtn').attr('disabled', false).text('Upload');
+                ProjectContent();
+                bsOverlay.removeClass('show, bg-dark')
+            }
+        })
+    })
 })

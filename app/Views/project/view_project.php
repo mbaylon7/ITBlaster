@@ -82,42 +82,49 @@
           
         }
         .default {
-      background: #f8f9fa;
-      color: #6c757d!important;
-      border: none;
-    }
-    .default:hover {
-      background: #f8f9fa;
-    }
-    .red {
-      background: #d9534f!important;
-      color: #fff!important;
-      padding: 0 17px;
-      border: none;
-    }
-    .red:hover {
-      background: #d9534f!important;
-      color: #fff!important;
-      padding: 0 17px;
-      border: none;
-    }
-    .green {
-      background: #5cb85c!important;
-      color: #fff!important;
-      padding: 0 17px;
-      border: none;
-    }
-    .green:hover {
-      background: #5cb85c!important;
-      color: #fff!important;
-      padding: 0 17px;
-      border: none;
-    }
-    .dt-buttons {
-      gap: 1rem;
-      padding: 10px 0;
-      justify-content: end;
-    }
+          background: #f8f9fa;
+          color: #6c757d!important;
+          border: none;
+        }
+        .default:hover {
+          background: #f8f9fa;
+        }
+        .red {
+          background: #d9534f!important;
+          color: #fff!important;
+          padding: 0 17px;
+          border: none;
+        }
+        .red:hover {
+          background: #d9534f!important;
+          color: #fff!important;
+          padding: 0 17px;
+          border: none;
+        }
+        .green {
+          background: #5cb85c!important;
+          color: #fff!important;
+          padding: 0 17px;
+          border: none;
+        }
+        .green:hover {
+          background: #5cb85c!important;
+          color: #fff!important;
+          padding: 0 17px;
+          border: none;
+        }
+        .dt-buttons {
+          gap: 1rem;
+          padding: 10px 0;
+          justify-content: end;
+        }
+        #actionBtn {
+          position: fixed;
+          right: 0;
+          bottom: 0;
+          padding: 0 50px  0 0;
+          z-index: 101;
+        }
     </style>
     <script src="<?= base_url()?>plugins/jquery/jquery.min.js"></script>
     <script src="<?= base_url()?>plugins/datatables/jquery.dataTables.min.js"></script>
@@ -126,179 +133,6 @@
     <script src="<?= base_url()?>plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
     <script src="<?= base_url()?>plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
     <script src="<?= base_url()?>plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
-    <script>
-
-   // Define a function to generate the tab navigation
-   function checkboxSelect() {
-        $('#select-all').click(function(event) {   
-          if(this.checked) {
-                $('.checkbox').each(function() {
-                    this.checked = true;
-                    $('#update_button_hide').removeClass('d-none');
-                });
-            } else {
-                $('.checkbox').each(function() {
-                    this.checked = false;     
-                    $('#update_button_hide').addClass('d-none');
-                });
-          }
-        });
-
-        $('input.checkbox').click(function() {
-                var anyCheckboxChecked = $('input.checkbox:checked').length > 0;
-                if (anyCheckboxChecked) {
-                    $('#update_button_hide').removeClass('d-none');
-                } else {
-                    $('#update_button_hide').addClass('d-none');
-                }
-            });
-      }
-      function showOffcanvas() {
-          var bsOverlay = $('.bs-canvas-overlay');
-      $('.offCanvas').on('click', function(){
-          let ticketid = $(this).attr('id')
-          var ctrl = $(this), 
-          elm = ctrl.is('a') ? ctrl.data('target') : ctrl.attr('href');
-          $(elm).addClass('mr-0');
-          $(elm + ' .bs-canvas-close').attr('aria-expanded', "true");
-          $('[data-target="' + elm + '"], a[href="' + elm + '"]').attr('aria-expanded', "true");
-          if(bsOverlay.length)
-          bsOverlay.addClass('show').addClass('bg-dark');
-          $('#ticketTitle').html(ticketid);
-          $('#universalTicketId').val(ticketid);
-          $('#getSubTickets').html('<table class="table table-bordered">\
-          <thead>\
-            <tr>\
-              <th></th>\
-              <th>Ticket #</th>\
-              <th>Description</th>\
-              <th>Duedate</th>\
-              <th>Status</th>\
-              <th>Created</th>\
-            </tr>\
-          </thead>\
-          <tbody>\
-            <tr>\
-              <td class="text-center" colspan="6"><i class="bi bi-exclamation-circle text-warning"></i> &nbsp; No data</td>\
-            </tr>\
-        </table>');
-        $('#ticketHistory').html('<table class="table table-bordered">\
-          <thead>\
-            <tr>\
-            <th></th>\
-            <th>Personel</th>\
-            <th>Action</th>\
-            <th>Timestamp</th>\
-            </tr>\
-          </thead>\
-          <tbody>\
-            <tr>\
-              <td class="text-center" colspan="4"><i class="bi bi-exclamation-circle text-warning"></i> &nbsp; No data</td>\
-            </tr>\
-        </table>');
-          $.ajax({
-              url: '/ticket/get-sub-tickets/'+ticketid,
-              method: 'GET',
-              data: {id:ticketid},
-              success: function(res) {
-                  $('#getSubTickets').html(res.output);
-                  $('#ticketHistory').html(res.activity);
-              }
-          })
-          return false;
-      });
-      
-      $('.bs-canvas-close, .bs-canvas-overlay').on('click', function(){
-          var elm;
-          if($(this).hasClass('bs-canvas-close')) {
-          elm = $(this).closest('.bs-canvas');
-          $('[data-target="' + elm + '"], a[href="' + elm + '"]').attr('aria-expanded', "false");
-          } else {
-          elm = $('.bs-canvas')
-          $('[data-toggle="canvas"]').attr('aria-expanded', "false");	
-          }
-          elm.removeClass('mr-0');
-          $('.bs-canvas-close', elm).attr('aria-expanded', "false");
-          if(bsOverlay.length)
-          bsOverlay.removeClass('show').removeClass('bg-dark');
-          return false;
-      });
-      // End off canvas
-      }
-      function initializeDataTable(status, tabId, res) {
-        $(`#tabResultDetail${status}`).html(res.result);
-        var dataTable = $(`#${tabId} table`).DataTable({
-          responsive: true,
-            lengthChange: true,
-            autoWidth: false,
-            language: {
-                aria: {
-                    sortAscending: ": activate to sort column ascending",
-                    sortDescending: ": activate to sort column descending"
-                },
-                emptyTable: "No data available in table",
-                info: "Showing _START_ to _END_ of _TOTAL_ entries",
-                infoEmpty: "No entries found",
-                infoFiltered: "(filtered1 from _MAX_ total entries)",
-                lengthMenu: "_MENU_ entries",
-                search: "Search:",
-                zeroRecords: "No matching records found"
-            },
-            buttons: [
-                { extend: 'print', className: 'btn default' },
-                { extend: 'pdf', className: 'btn red' },
-                { extend: 'csv', className: 'btn green' }
-            ],
-            order: [
-                [1, 'desc']
-            ],
-            lengthMenu: [
-                [5, 10, 15, 20, -1],
-                [5, 10, 15, 20, "All"]
-            ],
-            pageLength: 10,
-            dom: "<'row'<'col-md-12 d-flex justify-content-end'B>><'row'<'col-md-6 col-sm-12'l><'col-md-6 col-sm-12'f>r><'table-scrollable't><'row'<'col-md-5 col-sm-12'i><'col-md-7 col-sm-12'p>>",
-        });
-        dataTable.appendTo(`#${tabId}`);
-        showOffcanvas();
-      }
-
-      function toolTip(){
-        $('[data-toggle="tooltip"]').tooltip()
-      }
-
-      function showProjectTickets() {
-        $(document).on('click', '.tabStatus', function(){
-          var status = $(this).attr('data-status');
-          let projectid = $('#universalProjectid').val();
-
-          $.ajax({
-            url: '/project/ticket-tab-details='+status,
-            method: 'GET',
-            data: {status: status, projectid: projectid},
-            success: function(res) {
-              if (status == 'Not Started') {
-                  initializeDataTable('NS', 'tabResultDetailNS', res);
-              } else if (status == 'In Progress') {
-                  initializeDataTable('IP', 'tabResultDetailIP', res);
-              } else if (status == 'On Hold') {
-                  initializeDataTable('OH', 'tabResultDetailOH', res);  
-              } else if (status == 'Completed') {
-                  initializeDataTable('CMP', 'tabResultDetailCMP', res);
-              } else if (status == 'Cancelled') {
-                  initializeDataTable('CND', 'tabResultDetailCND', res);
-              } else if (status == 'Archived') {
-                  initializeDataTable('ARC', 'tabResultDetailARC', res);
-              } else if (status == 'For Approval') {
-                  initializeDataTable('FAL', 'tabResultDetailFAL', res);
-                  checkboxSelect();
-              }
-             toolTip();
-            }
-          });
-        });
-      }
-    </script>
     <section class="content-header">
       <?php 
         use App\Models\ClientProfile;
@@ -313,6 +147,14 @@
 
       ?>
         <!-- Off Canvas Content -->
+        <div class="clearfix d-none" id="actionBtn">
+            <div class="btn-group btn-group-solid">
+                <a class="btn btn-flat btn-light border tooltips statusValue" data-value="Not Started">Not Started</a>
+                <a class="btn btn-flat btn-primary tooltips statusValue" data-value="In Progress">In-Progress</a>
+                <a class="btn btn-flat btn-success tooltips statusValue" data-value="Completed">Complete</a>
+                <a class="btn btn-flat btn-warning tooltips statusValue" data-value="On Hold">On Hold</a>
+            </div>
+        </div>
       <div id="canvasContent"></div>
         <div class="container-fluid">
           <div class="row mb-2" id="projectHeader">
@@ -555,7 +397,7 @@
                             <select class="select2 custom-form" name="assignto[]" required multiple="multiple" data-placeholder="Select Personel" data-dropdown-css-class="select2-primary"  style="width: 100%;">
                               <?php foreach($developers ?? [] as $data):?> 
                                 <option value="<?=$data['id']?>"><?=$data['name']?></option>
-                                <?php endforeach?>
+                              <?php endforeach?>
                             </select>
                         </div>
                        
@@ -582,6 +424,47 @@
         <div class="modal-footer border-0" style="margin-top: -2rem">
             <a type="button" class="custom-btn border text-decoration-none text-dark" data-dismiss="modal"><i class="bi bi-x-circle"></i> &nbsp;Close</a>
             <button type="submit" id="addTicketBtn" class="custom-btn bg-primary text-decoration-none text-white"><i class="bi bi-check-circle"></i> &nbsp;Save</button>
+            </form>
+        </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal fade" id="upload-ticket-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header border-0">
+                <h5 class="modal-title d-flex justify-content-center" id="exampleModalLabel"></h5>
+            </div>
+            <div class="modal-body form" style="margin-top: -1.5rem">
+                <span class="d-flex justify-content-center mb-4 mt-0" style="font-weight: bold; font-size: 20px;"><span class="underline-text">Upload Ticket</span></span>
+                <form id="uploadTicketForm" class="form-horizontal" enctype="multipart/form-data">
+                <div class="form-group mb-4">
+                    <div class="row">
+                        <div class="col-md-12 mt-3">
+                            <input type="hidden" name="projectid" value="<?= $project['projectid'];?>">
+                            <input type="hidden" name="clientid" value="<?= $project['clientid'];?>">
+                            <input type="hidden" id="uparentid" name="parentid" value="0">
+                            <input type="hidden" id="uchildid" name="childid" value="0">
+                            <label class="control-label col-md-12">File <span style="font-weight: normal"><a href="<?=base_url()?>assets/template.csv" download> ( <i class="bi bi-download"></i> Download Template )</a></span></label>
+                            <input type="file" name="file" class="custom-form" accept=".csv" required>
+                        </div>
+
+                        <div class="col-md-12 mt-3">
+                          <label class="control-label col-md-12">Assign To</label>
+                            <select class="select2 custom-form" name="assignto[]" required multiple="multiple" data-placeholder="Select Personel" data-dropdown-css-class="select2-primary"  style="width: 100%;">
+                              <?php foreach($developers ?? [] as $data):?> 
+                                <option value="<?=$data['id']?>"><?=$data['name']?></option>
+                              <?php endforeach?>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <div class="modal-footer border-0" style="margin-top: -2rem">
+            <a type="button" class="custom-btn border text-decoration-none text-dark" data-dismiss="modal"><i class="bi bi-x-circle"></i> &nbsp;Close</a>
+            <button type="submit" id="uploadTicketBtn" class="custom-btn bg-primary text-decoration-none text-white"><i class="bi bi-check-circle"></i> &nbsp;Upload</button>
             </form>
         </div>
     </div>
@@ -931,6 +814,14 @@
   <script src="<?= base_url()?>js/ticket.js"></script>
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
-  <script></script>
+  <script>
+    // $(document).on('change', '.checkbox_action', function() {
+    //   $('.checkbox_action input[type="checkbox"]:checked').each(function() {
+    //       $(this).find('.status-contact').addClass('d-none')
+    //   })
+    // });
+
+    
+  </script>
   <?= $this->endsection() ?>
   

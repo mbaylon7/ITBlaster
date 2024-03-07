@@ -206,7 +206,7 @@ class ProfileController extends BaseController
                     }
                     
                     $output .=' 
-                    <div class="d-flex g-3 mb-2">
+                    <div class="d-flex g-3 mb-2 ">
                         <span class="mt-1" style="margin-right:5px"><a class="removeFileUploadedListed" data-id="0" id="'.$file['fileid'].'"><i class="bi bi-x-circle text-secondary"></i></a></span>
                         <span class="h4" style="margin-right: 10px"><i class="bi bi-'.$icon.' text-'.$color.'"></i></span>
                         <span class="w-100 text-ellipsis"><a href="/uploads/files/'.$this->session->get('name').'/'.$file['file_name'].'" download data-toggle="tooltip" title="Download/View">'.$file['file_name'].'</a></span>

@@ -1,0 +1,250 @@
+ERROR - 2024-03-07 00:02:24 --> mysqli_sql_exception: Unknown column 'tbl_logs.ticketid' in 'where clause' in E:\ITBlaster\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 E:\ITBlaster\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(295): mysqli->query('SELECT `tbl_log...', 0)
+#1 E:\ITBlaster\vendor\codeigniter4\framework\system\Database\BaseConnection.php(691): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `tbl_log...')
+#2 E:\ITBlaster\vendor\codeigniter4\framework\system\Database\BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `tbl_log...')
+#3 E:\ITBlaster\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `tbl_log...', Array, false)
+#4 E:\ITBlaster\vendor\codeigniter4\framework\system\Model.php(241): CodeIgniter\Database\BaseBuilder->get()
+#5 E:\ITBlaster\vendor\codeigniter4\framework\system\BaseModel.php(618): CodeIgniter\Model->doFindAll(0, 0)
+#6 E:\ITBlaster\app\Controllers\TicketController.php(559): CodeIgniter\BaseModel->findAll()
+#7 E:\ITBlaster\vendor\codeigniter4\framework\system\CodeIgniter.php(934): App\Controllers\TicketController->getTicketHistory('1280')
+#8 E:\ITBlaster\vendor\codeigniter4\framework\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TicketController))
+#9 E:\ITBlaster\vendor\codeigniter4\framework\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 E:\ITBlaster\public\index.php(66): CodeIgniter\CodeIgniter->run()
+#11 E:\ITBlaster\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(47): require_once('E:\\ITBlaster\\pu...')
+#12 {main}
+CRITICAL - 2024-03-07 00:02:24 --> Unknown column 'tbl_logs.ticketid' in 'where clause'
+in SYSTEMPATH\Database\BaseConnection.php on line 645.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `tbl_logs`.*, `tbl_ticket`.`ticketid`, `user`.`name`
+FROM `tbl_logs`
+JOIN `tbl_ticket` ON `tbl_ticket`.`projectid` = `tbl_logs`.`projectid`
+JOIN `user` ON `user`.`id` = `tbl_logs`.`userid`
+WHERE `tbl_logs`.`ticketid` = :tbl_logs.ticketid:', [...], false)
+ 2 SYSTEMPATH\Model.php(241): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(618): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Controllers\TicketController.php(559): CodeIgniter\BaseModel->findAll()
+ 5 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\TicketController->getTicketHistory('1280')
+ 6 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TicketController))
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(66): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+CRITICAL - 2024-03-07 08:21:53 --> Undefined variable $child
+in APPPATH\Controllers\ProjectController.php on line 1227.
+ 1 APPPATH\Controllers\ProjectController.php(1227): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $child', 'APPPATH\\Controllers\\ProjectController.php', 1227)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\ProjectController->getAllProjectTicket('51', 'ROOTPATH\\public')
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProjectController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(66): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+CRITICAL - 2024-03-07 08:21:53 --> Undefined variable $child
+in APPPATH\Controllers\ProjectController.php on line 1227.
+ 1 APPPATH\Controllers\ProjectController.php(1227): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $child', 'APPPATH\\Controllers\\ProjectController.php', 1227)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\ProjectController->getAllProjectTicket('51', 'ROOTPATH\\public')
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProjectController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(66): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+CRITICAL - 2024-03-07 09:08:26 --> There is no data to update.
+in SYSTEMPATH\BaseModel.php on line 924.
+ 1 SYSTEMPATH\BaseModel.php(924): CodeIgniter\Database\Exceptions\DataException::forEmptyDataset('update')
+ 2 SYSTEMPATH\Model.php(756): CodeIgniter\BaseModel->update([...], [])
+ 3 APPPATH\Controllers\TicketController.php(841): CodeIgniter\Model->update('1795,1796,1797', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\TicketController->updateMultipleTicketStatus()
+ 5 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TicketController))
+ 6 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(66): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+CRITICAL - 2024-03-07 09:08:28 --> There is no data to update.
+in SYSTEMPATH\BaseModel.php on line 924.
+ 1 SYSTEMPATH\BaseModel.php(924): CodeIgniter\Database\Exceptions\DataException::forEmptyDataset('update')
+ 2 SYSTEMPATH\Model.php(756): CodeIgniter\BaseModel->update([...], [])
+ 3 APPPATH\Controllers\TicketController.php(841): CodeIgniter\Model->update('1795,1796,1797', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\TicketController->updateMultipleTicketStatus()
+ 5 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TicketController))
+ 6 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(66): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+CRITICAL - 2024-03-07 09:12:12 --> Undefined variable $idString
+in APPPATH\Controllers\TicketController.php on line 841.
+ 1 APPPATH\Controllers\TicketController.php(841): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $idString', 'APPPATH\\Controllers\\TicketController.php', 841)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\TicketController->updateMultipleTicketStatus()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TicketController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(66): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+CRITICAL - 2024-03-07 09:12:43 --> Undefined variable $idString
+in APPPATH\Controllers\TicketController.php on line 841.
+ 1 APPPATH\Controllers\TicketController.php(841): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $idString', 'APPPATH\\Controllers\\TicketController.php', 841)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\TicketController->updateMultipleTicketStatus()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TicketController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(66): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+CRITICAL - 2024-03-07 09:13:04 --> Undefined variable $idString
+in APPPATH\Controllers\TicketController.php on line 841.
+ 1 APPPATH\Controllers\TicketController.php(841): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $idString', 'APPPATH\\Controllers\\TicketController.php', 841)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\TicketController->updateMultipleTicketStatus()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TicketController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(66): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+CRITICAL - 2024-03-07 09:14:12 --> Undefined variable $idString
+in APPPATH\Controllers\TicketController.php on line 841.
+ 1 APPPATH\Controllers\TicketController.php(841): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $idString', 'APPPATH\\Controllers\\TicketController.php', 841)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\TicketController->updateMultipleTicketStatus()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TicketController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(66): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+CRITICAL - 2024-03-07 09:14:26 --> explode(): Argument #2 ($string) must be of type string, array given
+in APPPATH\Controllers\TicketController.php on line 845.
+ 1 APPPATH\Controllers\TicketController.php(845): explode(',', [...])
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\TicketController->updateMultipleTicketStatus()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TicketController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(66): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+CRITICAL - 2024-03-07 09:15:15 --> explode(): Argument #2 ($string) must be of type string, array given
+in APPPATH\Controllers\TicketController.php on line 845.
+ 1 APPPATH\Controllers\TicketController.php(845): explode(',', [...])
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\TicketController->updateMultipleTicketStatus()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TicketController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(66): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+CRITICAL - 2024-03-07 09:28:25 --> Undefined variable $idSrting
+in APPPATH\Controllers\TicketController.php on line 847.
+ 1 APPPATH\Controllers\TicketController.php(847): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $idSrting', 'APPPATH\\Controllers\\TicketController.php', 847)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\TicketController->updateMultipleTicketStatus()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TicketController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(66): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+CRITICAL - 2024-03-07 09:31:50 --> Undefined property: App\Controllers\TicketController::$db
+in APPPATH\Controllers\TicketController.php on line 842.
+ 1 APPPATH\Controllers\TicketController.php(842): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: App\\Controllers\\TicketController::$db', 'APPPATH\\Controllers\\TicketController.php', 842)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\TicketController->updateMultipleTicketStatus()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TicketController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(66): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+CRITICAL - 2024-03-07 09:32:04 --> Undefined property: App\Controllers\TicketController::$db
+in APPPATH\Controllers\TicketController.php on line 842.
+ 1 APPPATH\Controllers\TicketController.php(842): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: App\\Controllers\\TicketController::$db', 'APPPATH\\Controllers\\TicketController.php', 842)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\TicketController->updateMultipleTicketStatus()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TicketController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(66): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+CRITICAL - 2024-03-07 09:32:57 --> Undefined property: App\Controllers\TicketController::$db
+in APPPATH\Controllers\TicketController.php on line 842.
+ 1 APPPATH\Controllers\TicketController.php(842): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: App\\Controllers\\TicketController::$db', 'APPPATH\\Controllers\\TicketController.php', 842)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\TicketController->updateMultipleTicketStatus()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TicketController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(66): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+CRITICAL - 2024-03-07 09:35:24 --> Undefined property: App\Controllers\TicketController::$db
+in APPPATH\Controllers\TicketController.php on line 841.
+ 1 APPPATH\Controllers\TicketController.php(841): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: App\\Controllers\\TicketController::$db', 'APPPATH\\Controllers\\TicketController.php', 841)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\TicketController->updateMultipleTicketStatus()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TicketController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(66): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+CRITICAL - 2024-03-07 09:36:17 --> Undefined property: App\Controllers\TicketController::$db
+in APPPATH\Controllers\TicketController.php on line 841.
+ 1 APPPATH\Controllers\TicketController.php(841): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: App\\Controllers\\TicketController::$db', 'APPPATH\\Controllers\\TicketController.php', 841)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\TicketController->updateMultipleTicketStatus()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TicketController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(66): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+CRITICAL - 2024-03-07 09:36:31 --> Undefined property: App\Controllers\TicketController::$db
+in APPPATH\Controllers\TicketController.php on line 841.
+ 1 APPPATH\Controllers\TicketController.php(841): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: App\\Controllers\\TicketController::$db', 'APPPATH\\Controllers\\TicketController.php', 841)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\TicketController->updateMultipleTicketStatus()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TicketController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(66): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+CRITICAL - 2024-03-07 09:39:44 --> Undefined variable $idSrting
+in APPPATH\Controllers\TicketController.php on line 843.
+ 1 APPPATH\Controllers\TicketController.php(843): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $idSrting', 'APPPATH\\Controllers\\TicketController.php', 843)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\TicketController->updateMultipleTicketStatus()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TicketController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(66): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+CRITICAL - 2024-03-07 09:40:09 --> Undefined variable $idSrting
+in APPPATH\Controllers\TicketController.php on line 843.
+ 1 APPPATH\Controllers\TicketController.php(843): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $idSrting', 'APPPATH\\Controllers\\TicketController.php', 843)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\TicketController->updateMultipleTicketStatus()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TicketController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(66): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+CRITICAL - 2024-03-07 09:40:44 --> Undefined variable $idSrting
+in APPPATH\Controllers\TicketController.php on line 843.
+ 1 APPPATH\Controllers\TicketController.php(843): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $idSrting', 'APPPATH\\Controllers\\TicketController.php', 843)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\TicketController->updateMultipleTicketStatus()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TicketController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(66): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+CRITICAL - 2024-03-07 09:41:24 --> Undefined variable $idSrting
+in APPPATH\Controllers\TicketController.php on line 843.
+ 1 APPPATH\Controllers\TicketController.php(843): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $idSrting', 'APPPATH\\Controllers\\TicketController.php', 843)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\TicketController->updateMultipleTicketStatus()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TicketController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(66): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+CRITICAL - 2024-03-07 09:41:34 --> Undefined variable $idSrting
+in APPPATH\Controllers\TicketController.php on line 843.
+ 1 APPPATH\Controllers\TicketController.php(843): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $idSrting', 'APPPATH\\Controllers\\TicketController.php', 843)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\TicketController->updateMultipleTicketStatus()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TicketController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(66): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+CRITICAL - 2024-03-07 10:33:23 --> implode(): Argument #1 ($pieces) must be of type array, string given
+in APPPATH\Controllers\ProjectController.php on line 849.
+ 1 APPPATH\Controllers\ProjectController.php(849): implode(',', null)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\ProjectController->uploadTickets()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProjectController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(66): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+CRITICAL - 2024-03-07 10:33:25 --> implode(): Argument #1 ($pieces) must be of type array, string given
+in APPPATH\Controllers\ProjectController.php on line 849.
+ 1 APPPATH\Controllers\ProjectController.php(849): implode(',', null)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\ProjectController->uploadTickets()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProjectController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(66): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+CRITICAL - 2024-03-07 10:33:57 --> implode(): Argument #1 ($pieces) must be of type array, string given
+in APPPATH\Controllers\ProjectController.php on line 849.
+ 1 APPPATH\Controllers\ProjectController.php(849): implode(',', null)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\ProjectController->uploadTickets()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProjectController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(66): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+CRITICAL - 2024-03-07 12:29:07 --> Trying to access array offset on value of type null
+in APPPATH\Controllers\TicketController.php on line 770.
+ 1 APPPATH\Controllers\TicketController.php(770): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'APPPATH\\Controllers\\TicketController.php', 770)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\TicketController->filterOpenTicketsByDev()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TicketController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(66): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+CRITICAL - 2024-03-07 12:29:21 --> Trying to access array offset on value of type null
+in APPPATH\Controllers\TicketController.php on line 770.
+ 1 APPPATH\Controllers\TicketController.php(770): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'APPPATH\\Controllers\\TicketController.php', 770)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\TicketController->filterOpenTicketsByDev()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TicketController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(66): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')

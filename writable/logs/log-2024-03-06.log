@@ -1,0 +1,41 @@
+CRITICAL - 2024-03-06 21:29:10 --> count(): Argument #1 ($value) must be of type Countable|array, null given
+in APPPATH\Controllers\ProjectController.php on line 868.
+ 1 APPPATH\Controllers\ProjectController.php(868): count(null)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\ProjectController->uploadTickets()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProjectController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(66): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+CRITICAL - 2024-03-06 21:31:53 --> Maximum execution time of 60 seconds exceeded
+in APPPATH\Controllers\ProjectController.php on line 867.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2024-03-06 21:38:32 --> Maximum execution time of 60 seconds exceeded
+in APPPATH\Controllers\ProjectController.php on line 867.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2024-03-06 21:41:56 --> Maximum execution time of 60 seconds exceeded
+in APPPATH\Controllers\ProjectController.php on line 867.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2024-03-06 21:43:36 --> Maximum execution time of 60 seconds exceeded
+in APPPATH\Controllers\ProjectController.php on line 867.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2024-03-06 21:45:34 --> Maximum execution time of 60 seconds exceeded
+in APPPATH\Controllers\ProjectController.php on line 870.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2024-03-06 21:47:55 --> Maximum execution time of 60 seconds exceeded
+in APPPATH\Controllers\ProjectController.php on line 870.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2024-03-06 23:51:33 --> Call to undefined method App\Controllers\ProjectController::generateUniquePasskey()
+in APPPATH\Controllers\ProjectController.php on line 890.
+ 1 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\ProjectController->uploadTickets()
+ 2 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProjectController))
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(66): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+CRITICAL - 2024-03-06 23:52:08 --> Undefined variable $newName
+in APPPATH\Controllers\ProjectController.php on line 876.
+ 1 APPPATH\Controllers\ProjectController.php(876): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $newName', 'APPPATH\\Controllers\\ProjectController.php', 876)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\ProjectController->uploadTickets()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProjectController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(66): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')

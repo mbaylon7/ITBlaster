@@ -1,5 +1,4 @@
 $(document).ready(function(){
-    // Calculate Allotment time
     $(function(){
         const $startDatetime = $('#project_start_date');
         const $endDatetime = $('#project_due_date');
@@ -44,11 +43,7 @@ $(document).ready(function(){
         $endDatetime.on('change', updateResult);
     })
 
-    function select2() {
-        $('.select2').select2({})
-    }
-
-    $('#select-all').click(function(event) {   
+    $('#select-all').click(function(e) {   
         if(this.checked) {
             $('.checkbox').each(function() {
                 this.checked = true;
@@ -67,13 +62,11 @@ $(document).ready(function(){
         e.preventDefault();
 
         $('#ApproveTicket').submit();
-            // Get the selected checkboxes
         var selectedTickets = [];
         $('input[name="approval_tickets[]"]:checked').each(function() {
             selectedTickets.push($(this).val());
         });
     
-        // Make the AJAX request
         $.ajax({
             url: 'ticket/batch-approve-tickets',
             method: 'POST',
@@ -100,17 +93,6 @@ $(document).ready(function(){
             }
         });
     })
-
-    function checkAll() {
-        $('input.checkbox').click(function() {
-            var anyCheckboxChecked = $('input.checkbox:checked').length > 0;
-            if (anyCheckboxChecked) {
-              $('#update_button_hide').removeClass('d-none');
-            } else {
-              $('#update_button_hide').addClass('d-none');
-            }
-          });
-    }
 
     $('.is_click').on('click', function(e){
         Swal.fire({
@@ -209,15 +191,17 @@ $(document).ready(function(){
     })
     
     $(document).on('click', '.addSubTask', function(){
-        var ticketid = $(this).attr('id');
-        $('#parentid').val(ticketid);
-    })
-    
-    $(document).on('click', '.addGrandChildTicket', function(){
-        let parentid = $(this).attr('id');
-        let childid = $(this).attr('data-id');
+        var parentid = $(this).data('parent');
+        var childid = $(this).data('child');
         $('#parentid').val(parentid);
         $('#childid').val(childid);
+    })
+
+    $(document).on('click', '.uploadTicket', function(){
+        var parentid = $(this).data('parent'); // ticketid column
+        var childid = $(this).data('child'); // parentid column
+        $('#uparentid').val(parentid);
+        $('#uchildid').val(childid);
     })
 
     $('.activityTab').on('click', function(e){

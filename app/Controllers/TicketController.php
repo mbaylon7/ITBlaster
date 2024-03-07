@@ -399,7 +399,7 @@ class TicketController extends BaseController
                 <table class="table table-bordered table-hover">
                     <thead>
                         <tr>
-                            <th width="10%"></th>
+                            <th width="2%"></th>
                             <th>Ticket #</th>
                             <th>Subtask</th>
                             <th>Description</th>
@@ -425,7 +425,7 @@ class TicketController extends BaseController
 
                 $badge = $child['ticket_label'];
                 if (isset($labelClasses[$badge])) {
-                    $label = '<span class="' . $labelClasses[$badge] . '">' . $badge . '</span>';
+                    $label = '<span class="status-contact ' . $labelClasses[$badge] . '">' . $badge . '</span>';
                 } else {
                     // Handle the case where $badge doesn't match any known labels
                     $label = $badge; // Default behavior, no badge
@@ -433,8 +433,10 @@ class TicketController extends BaseController
 
                 $subtask .='
                   <tr>
+                    <td><input type="checkbox" name="ticketCheckbox" class="checkbox_action" value="'.$child['ticketid'].'"></td>
                     <td class="text-center">
-                      <a href="#" data-toggle="modal" class="addGrandChildTicket" data-id="'.$child['ticketid'].'" id="'.$child['parentid'].'" data-target="#add-ticket-modal"><i class="bi bi-plus-square text-info" data-toggle="tooltip" title="Add Sub-task"></i> &nbsp;</a>
+                        <a data-toggle="modal" class="uploadTicket" data-parent="'.$child['parentid'].'" data-child="'.$child['ticketid'].'" data-target="#upload-ticket-modal"><i class="bi bi-upload text-info" data-toggle="tooltip" title="uploadTicket"></i> &nbsp;</a>
+                        <a data-toggle="modal" class="addSubTask" data-parent="'.$child['parentid'].'" data-child="'.$child['ticketid'].'" data-target="#add-ticket-modal"><i class="bi bi-plus-square text-info" data-toggle="tooltip" title="Add Sub-task"></i> &nbsp;</a>
                       <a data-toggle="collapse" href="#collapseExample'.$child['ticketid'].'" role="button" aria-expanded="false" aria-controls="collapseExample"><i class="bi bi-arrows-collapse text-info" data-toggle="tooltip" title="Show sub-task"></i> &nbsp;</a>
                     </td>
                     <td> <a href="#" data-toggle="modal" class="view-ticket-details" id="'.$child['ticketid'].'" data-target="#view-ticket-modal">'.$child['ticketid'].'</a></td>';
@@ -456,13 +458,14 @@ class TicketController extends BaseController
                 if(!empty($grandChildTickets)) {
                     $i=0;
                     $subtask .='<tr>
-                        <td colspan="7" class="p-0">
+                        <td colspan="8" class="p-0">
                         <div class="collapse px-2 pb-3" id="collapseExample'.$child['ticketid'].'">
                             <div class="box" style="min-height: 200px!important; margin-top: 17px;">
                             <span class="h5 mt-2">Sub Tickets</span>
                             <table class="table table-bordered table-hover mt-3">
                                 <thead style="background: #CACDD9!important;">
                                 <tr>
+                                    <th></th>
                                     <th>Ticket #</th>
                                     <th>Description</th>
                                     <th>Duedate</th>
@@ -483,7 +486,7 @@ class TicketController extends BaseController
                             $badge = $gchild['ticket_label'];
                             
                             if (isset($labelClasses[$badge])) {
-                                $label = '<span class="' . $labelClasses[$badge] . '">' . $badge . '</span>';
+                                $label = '<span class="status-contact ' . $labelClasses[$badge] . '">' . $badge . '</span>';
                             } else {
                                 // Handle the case where $badge doesn't match any known labels
                                 $label = $badge; // Default behavior, no badge
@@ -496,6 +499,7 @@ class TicketController extends BaseController
                             $gcreated_at_formatted = $gcreated_date->format("F d, Y");
                             $subtask .= '
                             <tr>
+                                <td><input type="checkbox" name="ticketCheckbox" class="checkbox_action" value="'.$gchild['ticketid'].'"></td>
                                 <td><a href="#" data-toggle="modal" class="view-ticket-details" id="'.$gchild['ticketid'].'" data-target="#view-ticket-modal">'.$gchild['ticketid'].'</a></td>
                                 <td><div class="text-ellipsisss">'.$gchild['ticket_task_description'].'</div></td>
                                 <td>'.$gdue_date_formatted.'</td>
@@ -820,6 +824,37 @@ class TicketController extends BaseController
             'result' => $output
         ]);
     //    echo '<pre>'; print_r($i);s
+    }
+
+    public function updateMultipleTicketStatus() {
+        $selectedIds = $this->request->getVar('selectedIds');
+        $status = $this->request->getVar('status');
+
+        if (!is_array($selectedIds) || empty($selectedIds)) {
+            $response = array('status' => 'error', 'message' => 'Invalid or empty IDs array.');
+            echo json_encode($response);
+            exit;
+        }
+
+        $count = 0;
+        $idString = implode(',', $selectedIds);
+
+        $tickets = $this->ticketModel->select('*')
+            ->where('ticketid IN ('.$idString.')')
+            ->findAll();
+
+        foreach($tickets as $ticket) {
+            if($this->ticketModel->update($ticket['ticketid'], ['ticket_label' => $status])) {
+                $count++;
+            }
+        }
+        return $this->response->setJSON([
+            'success' => true,
+            'tickets' => $tickets,
+            'count'   => $count,
+            'message' => 'Ticket Updated Successfully!'
+        ]);
+        
     }
         
 }

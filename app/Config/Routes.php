@@ -135,6 +135,8 @@ $routes->group('', ['filter' => 'authGuard'], static function($routes) {
         $routes->get('all-open-tickets', 'TicketController::allOpenTickets');
         $routes->get('all-projects-pm', 'TicketController::listAllProjects');
         $routes->post('show-hide-project/(:any)', 'TicketController::hideShowProject/$1');
+        $routes->post('upload-tickets', 'ProjectController::uploadTickets');
+        $routes->get('update-multiple-ticket-status', 'TicketController::updateMultipleTicketStatus');
     });
 
     $routes->group('system', static function($routes) {
